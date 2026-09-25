@@ -1,0 +1,298 @@
+---
+import Countdown from '../components/Countdown.astro';
+import DonateWidget from '../components/DonateWidget.astro';
+import EventCard from '../components/EventCard.astro';
+import Icon from '../components/Icon.astro';
+import Photo from '../components/Photo.astro';
+import Pill from '../components/Pill.astro';
+import WherePanel from '../components/WherePanel.astro';
+import Layout from '../layouts/Layout.astro';
+import { upcomingEvents } from '../lib/events';
+import { dict, fmt, href, type Lang } from '../lib/i18n';
+import type { IconName } from '../lib/icons';
+import { topicQuery } from '../lib/topics';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = dict(lang);
+const h = t.home;
+const u = (p: string) => href(lang, p);
+const upcoming = await upcomingEvents(lang);
+const next = upcoming[0];
+const takeawayIcons: IconName[] = ['compass', 'scale', 'book'];
+const programIcons: IconName[] = ['file', 'compass', 'shield', 'users'];
+const noteIcons: IconName[] = ['clock', 'language', 'users'];
+---
+<Layout lang={lang} ogKey="inicio">
+  <!-- Hero -->
+  <div class="hero">
+    <div class="container hero__grid">
+      <div class="hero__copy">
+        <Pill>{h.heroPill}</Pill>
+        <h1 class="display" set:html={h.heroTitle} />
+        <p class="lead">{h.heroLead}</p>
+        <div class="hero__cta">
+          <a class="btn btn--primary btn--lg" href={u('/eventos')}><Icon name="calendar" />{h.heroCtaEvents}</a>
+          <a class="btn btn--ghost btn--lg" href={u('/involucrate')}>{h.heroCtaSupport}</a>
+        </div>
+
+        <p class="takeaways__label">{h.takeawaysLabel}</p>
+        <div class="takeaways">
+          {
+            h.takeaways.map((item, i) => (
+              <div class="takeaway">
+                <div class="takeaway__icon"><Icon name={takeawayIcons[i]} /></div>
+                <h2>{item.title}</h2>
+                <p>{item.body}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="hero__visual">
+        <Photo id="inicio/hero" lang={lang} class="hero__photo" eager sizes="(max-width: 960px) 100vw, 560px">
+          <div class="hero__chip">
+            <span class="stack" aria-hidden="true">
+              <span class="avatar"><Icon name="scale" /></span>
+              <span class="avatar avatar--navy"><Icon name="file" /></span>
+              <span class="avatar avatar--sand"><Icon name="language" /></span>
+            </span>
+            {h.heroChip}
+          </div>
+        </Photo>
+        {
+          next && (
+            <aside class="ticket" aria-label={t.events.ticketAria}>
+              <div class="ticket__top">
+                <span class="ticket__label">{t.events.ticketLabel}</span>
+                <span class="countdown">
+                  <Icon name="clock" />
+                  <Countdown lang={lang} date={next.date} />
+                </span>
+              </div>
+              <div class="ticket__body">
+                <div class="date-block">
+                  <b>{next.day}</b>
+                  <small>{next.month} {next.year}</small>
+                </div>
+                <div>
+                  <h3>{next.title}</h3>
+                  <div class="ticket__meta">
+                    <span><Icon name="clock" />{next.timeLabel}</span>
+                    <span><Icon name="pin" />{next.city}, FL</span>
+                    <span><Icon name="check" />{t.common.free}</span>
+                  </div>
+                </div>
+              </div>
+              {next.capacity && (
+                <div class="ticket__count" data-ticket-count={next.slug} data-capacity={next.capacity} data-cap-pending>
+                  <Icon name="users" />
+                  <span set:html={fmt(t.events.ticketCount, { left: next.capacity, capacity: next.capacity })} />
+                </div>
+              )}
+              {next.registrationOpen ? (
+                <a class="btn btn--navy btn--block" href={next.url} data-event={next.slug}>{t.events.ticketCta}</a>
+              ) : (
+                <a class="btn btn--ghost btn--block" href={next.url}>{t.events.viewEvent}</a>
+              )}
+            </aside>
+          )
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- Partner strip -->
+  <div class="strip">
+    <div class="container strip__inner">
+      <span class="strip__label">{h.stripLabel}</span>
+      <div class="partner"><span class="partner__mark">V</span><div><b>{h.partnerName}</b><br /><small>{h.partnerRole}</small></div></div>
+      <span class="partner partner--slot">{h.partnerSlotOrg}</span>
+      <span class="partner partner--slot">{h.partnerSlotCompany}</span>
+      <a class="link" href={u('/involucrate')}>{h.stripCta}<Icon name="arrow" /></a>
+    </div>
+  </div>
+
+  <!-- Goals -->
+  <div class="section section--tight">
+    <div class="container">
+      <div class="goals">
+        <div>
+          <Pill>{h.goalsPill}</Pill>
+          <h2>{h.goalsTitle}</h2>
+          <p class="goals__intro">{h.goalsIntro}</p>
+        </div>
+        <div class="goals__grid">
+          {h.goals.map((g) => <div class="goal"><b>{g.value}</b><span>{g.label}</span></div>)}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Programs -->
+  <div class="section" id="que-hacemos">
+    <div class="container">
+      <div class="sec-head">
+        <div>
+          <Pill>{h.programsPill}</Pill>
+          <h2 class="h2">{h.programsTitle}</h2>
+          <p class="lead">{h.programsLead}</p>
+        </div>
+        <a class="btn btn--ghost" href={u('/programas')}>{h.programsCta}</a>
+      </div>
+      <div class="programs__grid">
+        {
+          h.programs.map((p, i) => (
+            <article class="program">
+              <div class="program__icon"><Icon name={programIcons[i]} /></div>
+              <h3>{p.title}</h3>
+              <p>{p.body}</p>
+              <a class="link" href={u('/programas')}>{h.programLink}<Icon name="arrow" /></a>
+            </article>
+          ))
+        }
+        <div class="programs__photo">
+          <Photo id="inicio/consulta-voluntaria" lang={lang} />
+          <div class="caption-chip"><Icon name="check-circle" />{h.programsCaption}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Upcoming events -->
+  <div class="section section--flush-top">
+    <div class="container">
+      <div class="sec-head">
+        <div>
+          <Pill>{h.eventsPill}</Pill>
+          <h2 class="h2">{h.eventsTitle}</h2>
+          <p class="lead">{h.eventsLead}</p>
+        </div>
+        <a class="link" href={u('/eventos')}>{h.eventsCta}<Icon name="arrow" /></a>
+      </div>
+      <div class="events-grid">
+        {
+          upcoming.length ? (
+            upcoming.slice(0, 3).map((ev) => <EventCard lang={lang} event={ev} />)
+          ) : (
+            <div class="events-empty">
+              <b>{t.events.noneTitle}</b>
+              {t.events.noneBody}
+              <br />
+              <a class="btn btn--ghost btn--sm" href="#boletin" style="margin-top:1rem">{t.events.emptyCta}</a>
+            </div>
+          )
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- Where we are -->
+  <div class="section section--flush-top">
+    <div class="container"><WherePanel lang={lang} events={upcoming} /></div>
+  </div>
+
+  <!-- How it works -->
+  <div class="section section--flush-top" id="como-funciona">
+    <div class="container steps">
+      <div class="steps__visual">
+        <Photo id="inicio/mesa-registro" lang={lang} />
+        <div class="float-note" aria-label={h.stepsNoteAria}>
+          {h.stepsNotes.map((n, i) => <div><Icon name={noteIcons[i]} />{n}</div>)}
+        </div>
+      </div>
+      <div>
+        <Pill>{h.stepsPill}</Pill>
+        <h2 class="h2" style="margin:.9rem 0 1.5rem">{h.stepsTitle}</h2>
+        <div class="step-list">
+          {
+            h.steps.map((s, i) => (
+              <div class="step">
+                <span class="step__num">{i + 1}</span>
+                <div>
+                  <h3>{s.title}</h3>
+                  <p>{s.body}</p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Promise -->
+  <div class="section section--flush-top">
+    <div class="container">
+      <div class="promise">
+        <div>
+          <Pill>{h.promisePill}</Pill>
+          <h2>{h.promiseTitle}</h2>
+        </div>
+        <ul>
+          {h.promises.map((p) => <li><Icon name="check-circle" /><span>{p}</span></li>)}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Give -->
+  <div class="section section--flush-top" id="apoya">
+    <div class="container give">
+      <div>
+        <Pill>{h.givePill}</Pill>
+        <h2 class="h2" style="margin:.9rem 0 1rem">{h.giveTitle}</h2>
+        <p class="lead">{h.giveLead}</p>
+        <div class="impact-list">
+          {h.impacts.map((i) => <div class="impact"><b>{i.amount}</b><span>{i.label}</span></div>)}
+        </div>
+      </div>
+      <DonateWidget lang={lang} />
+    </div>
+  </div>
+
+  <!-- Questions people bring -->
+  <div class="section section--flush-top">
+    <div class="container">
+      <div class="sec-head">
+        <div>
+          <Pill>{h.questionsPill}</Pill>
+          <h2 class="h2">{h.questionsTitle}</h2>
+          <p class="lead">{h.questionsLead}</p>
+        </div>
+        <a class="link" href={u('/programas')}>{h.questionsCta}<Icon name="arrow" /></a>
+      </div>
+      <div class="questions">
+        {
+          h.questions.map((q) => (
+            <a class="q" href={u('/eventos') + topicQuery(q.topic)}>
+              <p>{q.q}</p>
+              <div class="q__foot">
+                <span class="chip">{t.events.topics[q.topic as keyof typeof t.events.topics]}</span>
+                <span class="link">{h.questionLink}<Icon name="arrow" /></span>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- About teaser -->
+  <div class="section section--flush-top">
+    <div class="container">
+      <div class="teaser">
+        <div class="teaser__text">
+          <Pill>{h.teaserPill}</Pill>
+          <h2 class="h2">{h.teaserTitle}</h2>
+          <p>{h.teaserBody}</p>
+          <a class="btn btn--light" href={u('/mision')}>{h.teaserCta}<Icon name="arrow" /></a>
+        </div>
+        <Photo id="inicio/familia-verde" lang={lang} />
+      </div>
+    </div>
+  </div>
+</Layout>

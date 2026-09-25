@@ -1,0 +1,37 @@
+---
+import Icon from './Icon.astro';
+import { dict, fmt, href, type Lang } from '../lib/i18n';
+import type { EventView } from '../lib/events';
+
+interface Props {
+  lang: Lang;
+  next: EventView | undefined;
+}
+
+const { lang, next } = Astro.props;
+const t = dict(lang);
+---
+{
+  next && (
+    <div class="announce" id="announce" data-announce={next.slug}>
+      <div class="container announce__inner">
+        <span class="announce__dot" aria-hidden="true" />
+        <p class="announce__text" set:html={fmt(t.announce.text, { date: next.dateShort, city: next.city })} />
+        <a class="link" href={href(lang, '/eventos')} aria-label={t.announce.link}>
+          <span>{t.announce.link}</span>
+          <Icon name="arrow" />
+        </a>
+        <button class="announce__close" type="button" data-announce-close aria-label={t.announce.close}>
+          <Icon name="close" />
+        </button>
+      </div>
+    </div>
+    <script is:inline>
+      // Hide before first paint if the visitor already closed this announcement.
+      try {
+        var a = document.getElementById('announce');
+        if (a && sessionStorage.getItem('fv-announce') === a.dataset.announce) a.hidden = true;
+      } catch (e) {}
+    </script>
+  )
+}

@@ -1,0 +1,16 @@
+---
+/** "Faltan N días". Rendered at build time and refreshed in the browser. */
+import { daysUntil } from '../lib/dates';
+import { dict, fmt, type Lang } from '../lib/i18n';
+
+interface Props {
+  lang: Lang;
+  date: string;
+}
+const { lang, date } = Astro.props;
+const t = dict(lang).events;
+const n = daysUntil(date);
+const text =
+  n < 0 ? t.countdownPast : n === 0 ? t.countdownToday : n === 1 ? t.countdownTomorrow : fmt(t.countdownDays, { n });
+---
+<time datetime={date} data-countdown={date}>{text}</time>

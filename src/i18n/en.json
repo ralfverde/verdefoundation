@@ -1,0 +1,812 @@
+{
+  "meta": {
+    "htmlLang": "en",
+    "ogLocale": "en_US",
+    "homeTitle": "Fundación Verde | Free guidance for the immigrant community",
+    "titleTemplate": "{page} | Fundación Verde",
+    "description": "Fundación Verde hosts free, in-person events where volunteer lawyers and specialists explain, in Spanish, how to obtain immigration status and how the system works in the United States.",
+    "ogDescription": "Free legal and practical guidance events for the immigrant community in Florida.",
+    "orgDescription": "Free, in-person guidance in Spanish for the immigrant community in the United States."
+  },
+  "common": {
+    "skip": "Skip to content",
+    "brandAria": "Fundación Verde, home",
+    "brandFirst": "Fundación",
+    "brandSecond": "Verde",
+    "langGroup": "Language",
+    "enTitle": "English version coming in the next phase",
+    "enToast": "The English version will be available when the site launches.",
+    "donate": "Donate",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu",
+    "close": "Close",
+    "fl": "FL",
+    "free": "Free",
+    "entryFree": "Free entry",
+    "formError": "We couldn't send the form. Please try again or email us at hola@fundacionverde.org.",
+    "chooseOption": "Choose an option",
+    "placeholderName": "Your name",
+    "placeholderEmail": "name@email.com",
+    "placeholderPhone": "(305) 000 0000",
+    "labelName": "Full name",
+    "labelEmail": "Email",
+    "labelPhone": "Phone or WhatsApp",
+    "labelMessage": "Message",
+    "honeypot": "Do not fill in this field"
+  },
+  "nav": {
+    "aria": "Main navigation",
+    "inicio": "Home",
+    "mision": "Mission",
+    "programas": "Programs",
+    "eventos": "Events",
+    "involucrate": "Get involved",
+    "contacto": "Contact"
+  },
+  "pageTitles": {
+    "mision": "Our mission",
+    "programas": "Programs",
+    "eventos": "Events",
+    "involucrate": "Get involved",
+    "donar": "Donate",
+    "gracias": "Thank you for your donation",
+    "contacto": "Contact",
+    "privacidad": "Privacy notice",
+    "terminos": "Terms of use",
+    "notFound": "Page not found"
+  },
+  "pageDescriptions": {
+    "mision": "Fundación Verde is a family foundation in Miami that offers clear, in-person, free guidance in Spanish to the immigrant community.",
+    "programas": "Immigration guidance, navigating the system, know your rights, and consultations with volunteers: four free, in-person programs in Spanish.",
+    "eventos": "Calendar of Fundación Verde's free, in-person events in Spanish across Florida. Reserve your spot.",
+    "involucrate": "Volunteering, partners and venues, donations and sponsorship. There is more than one way to help Fundación Verde.",
+    "donar": "Your donation pays for the room, the printed guides, the interpreters, and the coffee. Keep Fundación Verde's events free.",
+    "gracias": "Thank you for supporting Fundación Verde's free events.",
+    "contacto": "Write to us to host an event in your community, or to become a volunteer, partner, or donor.",
+    "privacidad": "Fundación Verde privacy notice.",
+    "terminos": "Terms of use for the Fundación Verde website.",
+    "notFound": "The page you're looking for doesn't exist."
+  },
+  "announce": {
+    "text": "Next event: <b>{date}, {city}</b>. Free entry, limited spots.",
+    "link": "See events",
+    "close": "Close notice"
+  },
+  "events": {
+    "countdownPast": "Already happened",
+    "countdownToday": "It's today",
+    "countdownTomorrow": "It's tomorrow",
+    "countdownDays": "{n} days to go",
+    "spotsLeft": "{n} spots left",
+    "waitlist": "Waitlist",
+    "reserved": "{n} reserved",
+    "ticketLabel": "Next event",
+    "ticketAria": "Next event",
+    "ticketCount": "<b>{left} spots</b> available out of {capacity}",
+    "ticketCta": "Reserve my spot",
+    "reserve": "Reserve a spot",
+    "reserveShort": "Reserve",
+    "viewEvent": "See event",
+    "viewDetails": "See details",
+    "count1": "1 event",
+    "countN": "{n} events",
+    "timeRange": "{start} to {end}",
+    "emptyTitle": "No events match those filters",
+    "emptyBody": "Try another city or subscribe to the newsletter and we'll let you know when there's one near you.",
+    "emptyCta": "Notify me of the next one",
+    "noneTitle": "New dates coming soon",
+    "noneBody": "Subscribe to the newsletter and we'll let you know when there's an event near you.",
+    "pastTitle": "Past events",
+    "pastDone": "Event held",
+    "pastNotice": "This event has already taken place. See upcoming events in the calendar.",
+    "closedNotice": "Reservations for this event are closed.",
+    "backToCalendar": "Back to calendar",
+    "topics": {
+      "Orientación migratoria": "Immigration guidance",
+      "Navegar el sistema": "Navigating the system",
+      "Conoce tus derechos": "Know your rights"
+    }
+  },
+  "modal": {
+    "howToGet": "Directions",
+    "agenda": [
+      "Welcome, check-in, and printed guide handout",
+      "Main talk on the topic, in Spanish",
+      "Open questions",
+      "One-on-one consultations with volunteers, first come, first served"
+    ],
+    "formTitle": "Reserve your spot",
+    "formIntro": "It's free. Reserving helps us prepare enough guides and chairs.",
+    "labelWhatsapp": "WhatsApp",
+    "labelPeople": "People coming",
+    "peopleMore": "5 or more",
+    "labelEmailOptional": "Email (optional)",
+    "optIn": "I want to receive notices about upcoming events.",
+    "submit": "Confirm my spot",
+    "success": "Done, your spot is reserved. We sent you the confirmation by WhatsApp.",
+    "addToCalendar": "Add to my calendar",
+    "shareWhatsapp": "Share on WhatsApp",
+    "otherEvents": "See other events",
+    "icsToast": "Calendar file downloaded.",
+    "shareText": "{title}\n{date}, {time}\n{place}\nFree entry. Reserve here: {url}",
+    "openDetail": "See the event page"
+  },
+  "donate": {
+    "title": "Make your donation",
+    "secure": "Secure payment",
+    "freqAria": "Frequency",
+    "once": "One time",
+    "monthly": "Monthly",
+    "amountAria": "Amount",
+    "other": "Other amount",
+    "impactOnce": "With {money} we cover {what}.",
+    "impactMonthly": "Every month, with {money} we cover {what}.",
+    "impacts": {
+      "25": "printed guides for 10 families",
+      "50": "materials for 20 families",
+      "100": "an interpreter for an entire session",
+      "250": "the room rental for one event"
+    },
+    "impactFallbackOne": "printed guides for {n} family",
+    "impactFallbackMany": "printed guides for {n} families",
+    "btnOnce": "Donate {money}",
+    "btnMonthly": "Donate {money} a month",
+    "foot": "You'll receive a receipt by email.",
+    "notReady": "The payment gateway will be connected in the final version of the site.",
+    "checkoutError": "We couldn't open the payment page. Please try again in a few minutes."
+  },
+  "where": {
+    "pill": "Where we are",
+    "title": "Six locations in Florida for 2027",
+    "body": "We're starting in Miami-Dade, where the Verde family lives, and reaching Orlando and Tampa with local partners. If your city isn't listed, write to us.",
+    "mapAria": "Map of Florida with the locations",
+    "regionSubs": {
+      "Orlando": "Central Florida",
+      "Tampa": "West coast"
+    },
+    "multiSince": "{n} locations, starting {month}",
+    "event1": "1 event",
+    "eventN": "{n} events"
+  },
+  "home": {
+    "heroPill": "Family foundation in Miami",
+    "heroTitle": "Free guidance to <em>build your life</em> in the United States",
+    "heroLead": "We host free, in-person events where volunteer lawyers and specialists explain, in Spanish and without fine print, how to obtain immigration status and how this country's system works.",
+    "heroCtaEvents": "See upcoming events",
+    "heroCtaSupport": "How to support",
+    "takeawaysLabel": "What you take away from each event",
+    "takeaways": [
+      {
+        "title": "A clear plan",
+        "body": "You'll know which option applies to your case and what the next step is."
+      },
+      {
+        "title": "Answers from a lawyer",
+        "body": "Brief consultations with licensed volunteers, at no cost."
+      },
+      {
+        "title": "A guide in Spanish",
+        "body": "Printed material to take home and share with your family."
+      }
+    ],
+    "heroChip": "Volunteer lawyers, paralegals, and interpreters",
+    "stripLabel": "With support from",
+    "partnerName": "Verde Law",
+    "partnerRole": "Volunteer lawyers",
+    "partnerSlotOrg": "Your community organization",
+    "partnerSlotCompany": "Your company",
+    "stripCta": "Become a partner",
+    "goalsPill": "First year",
+    "goalsTitle": "Our goal for 2027",
+    "goalsIntro": "We're starting in South Florida and growing based on community demand. These are the numbers we measure ourselves by.",
+    "goals": [
+      {
+        "value": "12",
+        "label": "free events in the year"
+      },
+      {
+        "value": "6",
+        "label": "locations in Florida"
+      },
+      {
+        "value": "1,000",
+        "label": "families guided in person"
+      },
+      {
+        "value": "$0",
+        "label": "cost of entry, always"
+      }
+    ],
+    "programsPill": "What we do",
+    "programsTitle": "Clear information, in person and at no cost",
+    "programsLead": "Each event combines a short talk, time for questions, and one-on-one consultations with volunteers. We work on four fronts.",
+    "programsCta": "See the programs",
+    "programs": [
+      {
+        "title": "Immigration guidance",
+        "body": "The paths to obtaining status, explained one by one: asylum, TPS, family petitions, work visas, and more. What each one requires and how long it usually takes."
+      },
+      {
+        "title": "Navigating the system",
+        "body": "The everyday things no one explains: opening a bank account, enrolling your children in school, getting a driver's license, filing taxes, and using the health care system."
+      },
+      {
+        "title": "Know your rights",
+        "body": "What you can do and what you don't have to do when dealing with the authorities, how to spot fraud, and where to turn if something goes wrong."
+      },
+      {
+        "title": "Consultations with volunteers",
+        "body": "At the end of each event, lawyers and paralegals answer individual questions, first come, first served. No appointment and no cost."
+      }
+    ],
+    "programLink": "How it works",
+    "programsCaption": "Every event ends with one-on-one consultations",
+    "eventsPill": "Upcoming events",
+    "eventsTitle": "Reserve your spot, it's free",
+    "eventsLead": "In person, in Spanish, and open to the whole family. Reserving guarantees your printed guide.",
+    "eventsCta": "See the full calendar",
+    "stepsNoteAria": "Event details",
+    "stepsNotes": [
+      "Length: 2 and a half hours",
+      "Interpreter if you need one",
+      "You can bring your family"
+    ],
+    "stepsPill": "How it works",
+    "stepsTitle": "What a Fundación Verde event is like",
+    "steps": [
+      {
+        "title": "Register at no cost",
+        "body": "Choose the event and leave your name and how many people are coming with you. You'll get a confirmation by WhatsApp or email."
+      },
+      {
+        "title": "Arrive and get your guide",
+        "body": "We'll be waiting with a printed guide on the day's topic. You don't need to bring documents."
+      },
+      {
+        "title": "Listen and ask",
+        "body": "A 45-minute talk in Spanish, followed by open questions."
+      },
+      {
+        "title": "Talk with a volunteer",
+        "body": "Brief one-on-one consultations, first come, first served, to give guidance on your specific case."
+      }
+    ],
+    "promisePill": "Our promise",
+    "promiseTitle": "Four things that don't happen at our events",
+    "promises": [
+      "No one charges you for entry, for the guide, or for the consultation.",
+      "No one asks for your immigration status to take part.",
+      "No one promises you an outcome or sells you a service.",
+      "No one who isn't a licensed lawyer gives you legal guidance."
+    ],
+    "givePill": "Support the foundation",
+    "giveTitle": "Your contribution keeps the events free",
+    "giveLead": "Every event means printing guides, renting a room, paying interpreters, and offering coffee. Volunteers give their time; your donation covers the rest.",
+    "impacts": [
+      {
+        "amount": "$25",
+        "label": "Printed guides for 10 families"
+      },
+      {
+        "amount": "$50",
+        "label": "Materials for 20 families"
+      },
+      {
+        "amount": "$100",
+        "label": "An interpreter for an entire session"
+      },
+      {
+        "amount": "$250",
+        "label": "The room rental for one event"
+      }
+    ],
+    "questionsPill": "Questions we hear",
+    "questionsTitle": "The questions people come with",
+    "questionsLead": "Some of the most common ones. Each event answers the ones on its topic and leaves time for yours.",
+    "questionsCta": "See the programs",
+    "questionLink": "See event",
+    "questions": [
+      {
+        "q": "Can I petition for my mom if I already have a green card?",
+        "topic": "Orientación migratoria"
+      },
+      {
+        "q": "My TPS expires this year. What are my options?",
+        "topic": "Orientación migratoria"
+      },
+      {
+        "q": "Do I need a lawyer to apply for asylum, or can I do it on my own?",
+        "topic": "Orientación migratoria"
+      },
+      {
+        "q": "Can I open a bank account without a Social Security number?",
+        "topic": "Navegar el sistema"
+      },
+      {
+        "q": "How do I file taxes if I don't have status yet?",
+        "topic": "Navegar el sistema"
+      },
+      {
+        "q": "If the police stop me, do I have to say where I'm from?",
+        "topic": "Conoce tus derechos"
+      }
+    ],
+    "teaserPill": "A family foundation",
+    "teaserTitle": "We were founded to give back to the immigrant community",
+    "teaserBody": "Fundación Verde is the Verde family's social initiative. We work alongside Verde Law, the firm that provides volunteer lawyers, so that the information that changes a family's direction doesn't depend on being able to pay for a consultation.",
+    "teaserCta": "Learn about our mission"
+  },
+  "mision": {
+    "pill": "Our mission",
+    "title": "A family foundation that gives back to the immigrant community",
+    "lead": "We believe clear information changes a family's direction. That's why we offer it in person, in Spanish, and at no cost.",
+    "whyTitle": "Why we exist",
+    "why": [
+      "Every day, people come to Verde Law who have spent years in the country without knowing they had an option, or who spent their savings on someone who wasn't a lawyer. Most of those stories began with a lack of information.",
+      "Fundación Verde was born from the Verde family to change that starting point. We host in-person events where volunteer lawyers and specialists explain, without fine print, how to obtain status and how the system works in the United States.",
+      "We don't sell anything at our events. Entry is free, consultations are free, and no one is obligated to hire a service."
+    ],
+    "valuesPill": "Our values",
+    "valuesTitle": "Four commitments that don't change",
+    "values": [
+      {
+        "title": "Clarity",
+        "body": "We explain with examples and in people's own language. If it isn't understood, it doesn't help."
+      },
+      {
+        "title": "Free of charge",
+        "body": "No Foundation event, guide, or consultation has a cost. Ever."
+      },
+      {
+        "title": "Responsibility",
+        "body": "The information comes from licensed lawyers and trained volunteers. No rumors."
+      },
+      {
+        "title": "Closeness",
+        "body": "We go where people already gather: churches, schools, libraries, and community centers."
+      }
+    ],
+    "lawPill": "Verde Law",
+    "lawTitle": "How we work with Verde Law",
+    "lawBody": "Verde Law, the firm founded by Rafael Verde, provides the volunteer lawyers and paralegals, some of the materials, and logistical support. The Foundation is an independent nonprofit organization: it decides its own topics, locations, and priorities.",
+    "lawGivesTitle": "What Verde Law provides",
+    "lawGives": [
+      "Volunteer lawyers and paralegals",
+      "Legal review of the guides",
+      "Logistical and outreach support"
+    ],
+    "fundDoesTitle": "What the Foundation does",
+    "fundDoes": [
+      "Sets topics, locations, and the calendar",
+      "Receives and manages donations",
+      "Brings in other partners and volunteers"
+    ],
+    "teamPill": "Who's behind it",
+    "teamTitle": "A family and a board of directors",
+    "founder": {
+      "name": "Rafael Verde",
+      "role": "Founder and president",
+      "bio": "Immigration and personal injury lawyer, founder of Verde Law in Miami."
+    },
+    "boardPending": "Name to be confirmed",
+    "boardBio": "Brief description of their role at the Foundation and their background.",
+    "boardRoles": [
+      "Vice president",
+      "Treasurer",
+      "Event coordination"
+    ],
+    "timelinePill": "The path",
+    "timelineTitle": "From a family idea to a calendar of events",
+    "timeline": [
+      {
+        "time": "2026",
+        "title": "Fundación Verde is born",
+        "body": "Incorporation, identity, and first-year planning alongside Verde Law."
+      },
+      {
+        "time": "January 2027",
+        "title": "First event in Hialeah",
+        "body": "Immigration guidance for 120 families, with one-on-one consultations at the end."
+      },
+      {
+        "time": "2027",
+        "title": "12 events at 6 locations",
+        "body": "Miami-Dade, Orlando, and Tampa, in churches, libraries, and community centers."
+      },
+      {
+        "time": "Next",
+        "title": "New cities",
+        "body": "We'll grow wherever the community asks us to and wherever there are local partners."
+      }
+    ],
+    "joinTitle": "Want to be part of it?",
+    "joinBody": "Volunteers, partners, and donors make every event possible.",
+    "joinCta": "Get involved",
+    "joinDonate": "Donate"
+  },
+  "programas": {
+    "pill": "Programs",
+    "title": "Four fronts, one goal: that you understand your options",
+    "lead": "All programs are delivered at in-person events, in Spanish, with printed material and one-on-one consultations at the end.",
+    "blocks": [
+      {
+        "title": "Immigration guidance",
+        "body": "We explain the paths to obtaining status, what each one requires, and how long it usually takes. No promised outcomes and no jargon: the goal is for you to leave knowing what your path could be and what to ask when you look for representation.",
+        "chips": [
+          "Asylum",
+          "TPS",
+          "Family petitions",
+          "Work visas",
+          "Parole",
+          "Green card and citizenship"
+        ]
+      },
+      {
+        "title": "Navigating the system",
+        "body": "The everyday things no one explains when you arrive: how to open a bank account, enroll your children in school, get a driver's license, file taxes with an ITIN, or access health services. Each session invites a specialist on the topic.",
+        "chips": [
+          "Bank account",
+          "School",
+          "Driver's license",
+          "Taxes and ITIN",
+          "Health",
+          "Housing"
+        ]
+      },
+      {
+        "title": "Know your rights",
+        "body": "What you can do and what you don't have to do when dealing with the authorities, how to recognize a fake lawyer or notario, and where to turn if something goes wrong. Responsible information, shared calmly, so decisions aren't made out of fear.",
+        "chips": [
+          "Encounters with authorities",
+          "Fraud and notarios",
+          "Labor rights",
+          "Where to report"
+        ]
+      },
+      {
+        "title": "Consultations with volunteers",
+        "body": "At the end of each event, volunteer lawyers and paralegals answer individual questions, first come, first served, about ten minutes per person. You don't need to bring documents: just describe your situation to receive initial guidance and learn what the next step is.",
+        "chips": [
+          "No appointment",
+          "No cost",
+          "10 minutes per person",
+          "Confidential"
+        ]
+      }
+    ],
+    "topicLink": "See events on this topic",
+    "upcomingLink": "See upcoming events",
+    "nextMini": "{city}, FL, {time}. {countdown}.",
+    "faqPill": "Frequently asked questions",
+    "faqTitle": "What people ask us before coming"
+  },
+  "eventos": {
+    "pill": "Calendar",
+    "title": "Upcoming events",
+    "lead": "All are in person, free, and in Spanish. Reserve your spot to guarantee your printed guide.",
+    "filterCity": "City",
+    "filterTopic": "Topic",
+    "allCities": "All",
+    "allTopics": "All",
+    "expectPill": "What to expect",
+    "expectTitle": "Come as you are, with your questions",
+    "expect": [
+      {
+        "title": "You don't need documents",
+        "body": "None. If you like, write down key dates in your story to make the most of the consultation."
+      },
+      {
+        "title": "Bring your family",
+        "body": "Events are open to all ages. There will be space for children."
+      },
+      {
+        "title": "There will be coffee and guides",
+        "body": "Arrive a few minutes early to check in, grab a coffee, and get your printed guide."
+      }
+    ],
+    "hostPill": "Bring an event to your community",
+    "hostTitle": "Do you have a room and a group of people with questions?",
+    "hostBody": "If you lead a church, a school, a community center, or a business with at least 40 interested people, we'll bring the event to you. We provide the volunteers, the guides, and the outreach.",
+    "hostCta": "Request an event"
+  },
+  "involucrate": {
+    "pill": "Get involved",
+    "title": "There's more than one way to help",
+    "lead": "An event needs volunteers to explain, partners to open their doors, and donors to cover the costs. Choose your way.",
+    "paths": [
+      {
+        "title": "Volunteering",
+        "body": "Lawyers, paralegals, interpreters, and people who want to welcome, check in, and accompany families. Two hours per event, no ongoing commitment.",
+        "cta": "I want to volunteer"
+      },
+      {
+        "title": "Partners and venues",
+        "body": "Churches, schools, libraries, community centers, and businesses that offer their space or help spread the word. Your organization is listed as an event partner.",
+        "cta": "I want to be a partner"
+      },
+      {
+        "title": "Donations and sponsorship",
+        "body": "From $25 to print guides to sponsoring an entire event. Every contribution goes directly to keeping the events free.",
+        "cta": "See ways to donate"
+      }
+    ],
+    "rolesPill": "Volunteer roles",
+    "rolesTitle": "What each event needs",
+    "roles": [
+      {
+        "title": "Volunteer lawyer",
+        "body": "Handles brief consultations at the end of the event. Active license in any state."
+      },
+      {
+        "title": "Paralegal",
+        "body": "Helps with consultations, organizes the line, and hands out follow-up material."
+      },
+      {
+        "title": "Interpreter",
+        "body": "Creole, Portuguese, or English. Accompanies anyone who needs it during the talk and the consultation."
+      },
+      {
+        "title": "Check-in and logistics",
+        "body": "Welcomes families, hands out the guides, and makes sure everything runs smoothly."
+      },
+      {
+        "title": "Content and photography",
+        "body": "Documents the event to share what happens and promote the next one."
+      }
+    ],
+    "formPill": "Form",
+    "formTitle": "Tell us how you want to help",
+    "formIntro": "We'll reply within three business days. If you're a lawyer or paralegal, we'll send you the dates of upcoming events so you can choose the one that works for you.",
+    "formPerks": [
+      "No ongoing commitment",
+      "Brief training before your first event",
+      "Certificate of volunteer hours"
+    ],
+    "labelCity": "City",
+    "placeholderCity": "Miami, FL",
+    "labelHow": "How you want to help",
+    "howOptions": [
+      "Volunteer lawyer",
+      "Paralegal",
+      "Interpreter",
+      "Check-in and logistics",
+      "Content and photography",
+      "Offer a venue or outreach",
+      "Sponsor an event"
+    ],
+    "placeholderMessage": "Tell us about your availability, your organization, or any details we should know.",
+    "consent": "I agree that Fundación Verde may contact me by email or WhatsApp about this request.",
+    "submit": "Send request",
+    "success": "We received your request. We'll write to you within three business days."
+  },
+  "donar": {
+    "pill": "Donate",
+    "title": "Keep the events free",
+    "lead": "Volunteers give their time. Your donation pays for the room, the printed guides, the interpreters, and the coffee. Everything we receive goes to events.",
+    "perks": [
+      "An email receipt for every donation",
+      "You can cancel a monthly donation whenever you want",
+      "Every year we publish how the money was used"
+    ],
+    "tiersPill": "Your impact",
+    "tiersTitle": "What each contribution covers",
+    "tiers": [
+      {
+        "amount": 25,
+        "title": "Printed guides",
+        "body": "Material in Spanish for 10 families, to take home and share."
+      },
+      {
+        "amount": 50,
+        "title": "Materials",
+        "body": "Guides, folders, and signage for 20 families at one event."
+      },
+      {
+        "amount": 100,
+        "title": "Interpreter",
+        "body": "A Creole, Portuguese, or English interpreter for an entire session."
+      },
+      {
+        "amount": 250,
+        "title": "The room",
+        "body": "Renting a community hall for a 100-person event."
+      }
+    ],
+    "tierCta": "Donate {money}",
+    "featured": {
+      "amount": "$2,500",
+      "title": "A full event",
+      "body": "Sponsor an event from start to finish. Your name or your company appears on the guides and on this page.",
+      "cta": "Talk with us"
+    },
+    "transparencyPill": "Transparency",
+    "transparencyTitle": "Where the money goes",
+    "transparencyLead": "Planned breakdown for the first year. We'll publish the actual figures at the close of 2027.",
+    "bars": [
+      {
+        "label": "Events and logistics (rooms, coffee, transportation)",
+        "pct": 60
+      },
+      {
+        "label": "Printed guides and materials",
+        "pct": 25
+      },
+      {
+        "label": "Interpreters and volunteer support",
+        "pct": 10
+      },
+      {
+        "label": "Administration",
+        "pct": 5
+      }
+    ],
+    "waysTitle": "Other ways to support",
+    "waysIntro": "Not all support is money. Here are concrete ways to help.",
+    "ways": [
+      {
+        "title": "Lend a room",
+        "body": "Your church, school, or business can host an event."
+      },
+      {
+        "title": "Print the guides",
+        "body": "If you have a print shop, donate a print run of material."
+      },
+      {
+        "title": "Donate the coffee",
+        "body": "A restaurant or coffee shop can cover the refreshments."
+      },
+      {
+        "title": "Spread the word",
+        "body": "Share the next event with your community or your congregation."
+      }
+    ],
+    "faqPill": "Questions about donations",
+    "faqTitle": "Before you donate"
+  },
+  "gracias": {
+    "pill": "Thank you",
+    "title": "Thank you for keeping the events free",
+    "lead": "You'll receive a receipt by email in a few minutes. Your contribution helps every family leave an event with clear information, at no cost.",
+    "monthlyNote": "If you chose to donate monthly, you can cancel whenever you want using the link in your receipt.",
+    "ctaEvents": "See upcoming events",
+    "ctaHome": "Back to home"
+  },
+  "contacto": {
+    "pill": "Contact",
+    "title": "Let's talk",
+    "lead": "You don't need to write to us to attend an event: reserve directly in the calendar. For everything else, this is the place.",
+    "labelReason": "Reason",
+    "reasons": [
+      "Host an event in my community",
+      "Volunteering",
+      "Partners and sponsorship",
+      "Donations",
+      "Press",
+      "Other"
+    ],
+    "placeholderMessage": "Tell us how we can help you.",
+    "hint": "We can't provide legal guidance through this form. For questions about your case, come to an event.",
+    "submit": "Send message",
+    "success": "Message sent. We'll reply within three business days.",
+    "emailTitle": "Email",
+    "whatsappTitle": "WhatsApp",
+    "whatsappHours": "Monday to Friday, 9 a.m. to 6 p.m.",
+    "whatsappCta": "Message us on WhatsApp",
+    "whatsappText": "Hi, I'm writing to you from the Fundación Verde website.",
+    "hqTitle": "Office",
+    "addressPending": "Address to be confirmed",
+    "socialTitle": "Social media"
+  },
+  "newsletter": {
+    "title": "We'll let you know when there's an event near you",
+    "body": "One email a month, no spam. Just dates, locations, and topics.",
+    "toggleAria": "How you want to receive notices",
+    "email": "Email",
+    "whatsapp": "WhatsApp",
+    "labelEmail": "Email",
+    "labelWhatsapp": "WhatsApp number",
+    "placeholderEmail": "Your email",
+    "placeholderWhatsapp": "Your WhatsApp number",
+    "submit": "Subscribe",
+    "success": "Done. We'll let you know about the next event."
+  },
+  "footer": {
+    "colFoundation": "Foundation",
+    "linksFoundation": [
+      "Our mission",
+      "Programs",
+      "Events",
+      "Transparency"
+    ],
+    "colParticipate": "Participate",
+    "linksParticipate": [
+      "Volunteering",
+      "Partners and venues",
+      "Donate",
+      "Host an event"
+    ],
+    "colContact": "Contact",
+    "colGallery": "Gallery",
+    "galleryAria": "Event photos",
+    "legal": "© {year} Fundación Verde. The information shared at our events is general and educational; it does not replace legal advice about your case or create an attorney-client relationship.",
+    "ein": "EIN {ein}",
+    "legalNav": "Legal",
+    "privacy": "Privacy",
+    "terms": "Terms"
+  },
+  "mobileCta": {
+    "events": "Events",
+    "donate": "Donate"
+  },
+  "notFound": {
+    "pill": "Error 404",
+    "title": "We couldn't find this page",
+    "lead": "The link may have changed or the page may no longer exist. Here are some options to keep going.",
+    "ctaHome": "Go to home",
+    "ctaEvents": "See upcoming events"
+  },
+  "legal": {
+    "reviewNotice": "Provisional text pending legal review. Do not publish without approval.",
+    "updated": "Last updated: to be confirmed",
+    "privacy": {
+      "pill": "Privacy",
+      "title": "Privacy notice",
+      "sections": [
+        {
+          "h": "What data we collect",
+          "p": [
+            "When you reserve a spot, subscribe to the newsletter, or write to us, we collect the information you give us: name, email, WhatsApp number, city, and the message you send. We do not ask for your immigration status."
+          ]
+        },
+        {
+          "h": "How we use it",
+          "p": [
+            "We use this information to confirm your reservation, notify you of upcoming events if you asked us to, reply to your message, and prepare enough guides and chairs."
+          ]
+        },
+        {
+          "h": "Who we share it with",
+          "p": [
+            "We do not sell your data. We store it in tools that help us manage reservations, messages, and donations, such as our contact system and payment platform."
+          ]
+        },
+        {
+          "h": "Your choices",
+          "p": [
+            "You can ask us to correct or delete your data, or stop receiving notices at any time, by writing to hola@fundacionverde.org."
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "pill": "Terms",
+      "title": "Terms of use",
+      "sections": [
+        {
+          "h": "General information",
+          "p": [
+            "The content of this site and of our events is general and educational. It does not replace legal advice about your case or create an attorney-client relationship."
+          ]
+        },
+        {
+          "h": "Reservations",
+          "p": [
+            "Reserving a spot is free and doesn't commit you to anything. Spots are limited and venues may change; we'll let you know by WhatsApp or email if that happens."
+          ]
+        },
+        {
+          "h": "Donations",
+          "p": [
+            "Donations are processed securely through our payment platform. You can cancel a monthly donation whenever you want."
+          ]
+        },
+        {
+          "h": "Contact",
+          "p": [
+            "If you have questions about these terms, write to us at hola@fundacionverde.org."
+          ]
+        }
+      ]
+    }
+  }
+}

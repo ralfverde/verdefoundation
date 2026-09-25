@@ -1,0 +1,26 @@
+# The site is static: "upcoming" vs "past" events, the hero ticket, the
+# announcement bar and the Florida map are computed at build time. This job
+# triggers a fresh Vercel deploy every morning (Miami time) so past events
+# roll off automatically. Countdowns and capacity bars already refresh in
+# the browser.
+#
+# Setup: Vercel > Project > Settings > Git > Deploy Hooks > create a hook for
+# the production branch, then save its URL as the repository secret
+# VERCEL_DEPLOY_HOOK_URL (GitHub > Settings > Secrets and variables > Actions).
+name: Daily rebuild
+
+on:
+  schedule:
+    - cron: '7 9 * * *' # 05:07 EDT / 04:07 EST
+  workflow_dispatch:
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Vercel deploy hook
+        env:
+          HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
+        run: |
+          if [ -z "$HOOK" ]; then echo "VERCEL_DEPLOY_HOOK_URL is not set; skipping."; exit 0; fi
+          curl -fsS -X POST "$HOOK"

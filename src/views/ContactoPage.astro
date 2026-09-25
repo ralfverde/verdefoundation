@@ -1,0 +1,70 @@
+---
+import Honeypot from '../components/Honeypot.astro';
+import Icon from '../components/Icon.astro';
+import Photo from '../components/Photo.astro';
+import Pill from '../components/Pill.astro';
+import Layout from '../layouts/Layout.astro';
+import { dict, type Lang } from '../lib/i18n';
+import { SITE } from '../lib/site';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = dict(lang);
+const c = t.contacto;
+const waHref = `https://wa.me/${SITE.whatsappNumber}?text=${encodeURIComponent(c.whatsappText)}`;
+---
+<Layout lang={lang} title={t.pageTitles.contacto} description={t.pageDescriptions.contacto} ogKey="contacto">
+  <div class="container page-hero">
+    <Pill>{c.pill}</Pill>
+    <h1 class="h1">{c.title}</h1>
+    <p class="lead">{c.lead}</p>
+  </div>
+
+  <div class="section section--tight section--flush-top">
+    <div class="container form-wrap" style="grid-template-columns:1.1fr .9fr">
+      <form class="form panel" data-form="contact" novalidate>
+        <div class="form__fields">
+          <div class="form__row">
+            <div class="field"><label for="c-nombre">{t.common.labelName}</label><input id="c-nombre" name="name" type="text" autocomplete="name" placeholder={t.common.placeholderName} required /></div>
+            <div class="field"><label for="c-email">{t.common.labelEmail}</label><input id="c-email" name="email" type="email" autocomplete="email" placeholder={t.common.placeholderEmail} required /></div>
+          </div>
+          <div class="form__row">
+            <div class="field"><label for="c-tel">{t.common.labelPhone}</label><input id="c-tel" name="phone" type="tel" autocomplete="tel" placeholder={t.common.placeholderPhone} /></div>
+            <div class="field">
+              <label for="c-motivo">{c.labelReason}</label>
+              <select id="c-motivo" name="reason" required>
+                <option value="">{t.common.chooseOption}</option>
+                {c.reasons.map((r) => <option>{r}</option>)}
+              </select>
+            </div>
+          </div>
+          <div class="field"><label for="c-msg">{t.common.labelMessage}</label><textarea id="c-msg" name="message" placeholder={c.placeholderMessage} required></textarea></div>
+          <p class="form__hint">{c.hint}</p>
+          <Honeypot lang={lang} id="c" />
+        </div>
+        <div class="form__actions"><button class="btn btn--primary btn--lg" type="submit">{c.submit}</button></div>
+        <div class="form__success"><Icon name="check-circle" /><span>{c.success}</span></div>
+      </form>
+
+      <div>
+        <div class="info-card">
+          <div class="info-row"><div class="info-row__icon"><Icon name="mail" /></div><div><b>{c.emailTitle}</b><a href={`mailto:${SITE.email}`}>{SITE.email}</a></div></div>
+          <div class="info-row">
+            <div class="info-row__icon"><Icon name="whatsapp" /></div>
+            <div>
+              <b>{c.whatsappTitle}</b><span>{SITE.phoneDisplay}</span><span>{c.whatsappHours}</span>
+              <a class="btn btn--primary btn--sm" style="display:inline-flex;margin-top:.6rem;color:#fff" href={waHref} target="_blank" rel="noopener"><Icon name="whatsapp" />{c.whatsappCta}</a>
+            </div>
+          </div>
+          <div class="info-row"><div class="info-row__icon"><Icon name="pin" /></div><div><b>{c.hqTitle}</b><span>{SITE.city}</span><span>{SITE.address ?? c.addressPending}</span></div></div>
+          <div class="info-row"><div class="info-row__icon"><Icon name="instagram" /></div><div><b>{c.socialTitle}</b><a href={SITE.instagramUrl} target="_blank" rel="noopener">{SITE.instagramHandle}</a></div></div>
+        </div>
+        <Photo id="contacto/mapa" lang={lang} class="map" tagIcon="pin">
+          <span class="pin"><Icon name="pin-fill" /></span>
+        </Photo>
+      </div>
+    </div>
+  </div>
+</Layout>

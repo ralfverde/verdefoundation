@@ -1,0 +1,38 @@
+---
+import FloridaMap from './FloridaMap.astro';
+import Pill from './Pill.astro';
+import { dict, fmt, type Lang } from '../lib/i18n';
+import type { EventView } from '../lib/events';
+import { summarizeRegions } from '../lib/where';
+
+interface Props {
+  lang: Lang;
+  events: EventView[];
+}
+const { lang, events } = Astro.props;
+const t = dict(lang).where;
+const regions = summarizeRegions(events, lang);
+---
+{
+  regions.length > 0 && (
+    <div class="where">
+      <div>
+        <Pill>{t.pill}</Pill>
+        <h2 class="h2">{t.title}</h2>
+        <p>{t.body}</p>
+        <div class="sedes">
+          {regions.map((r) => (
+            <div class="sede">
+              <div>
+                <b>{r.name}</b>
+                <span>{r.listSub}</span>
+              </div>
+              <small>{r.count === 1 ? t.event1 : fmt(t.eventN, { n: r.count })}</small>
+            </div>
+          ))}
+        </div>
+      </div>
+      <FloridaMap regions={regions} label={t.mapAria} />
+    </div>
+  )
+}

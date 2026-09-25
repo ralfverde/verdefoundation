@@ -1,0 +1,98 @@
+---
+import Countdown from '../components/Countdown.astro';
+import FaqList from '../components/FaqList.astro';
+import Icon from '../components/Icon.astro';
+import Photo from '../components/Photo.astro';
+import Pill from '../components/Pill.astro';
+import Layout from '../layouts/Layout.astro';
+import { upcomingEvents } from '../lib/events';
+import { faqJsonLd } from '../lib/faqs';
+import { dict, href, type Lang } from '../lib/i18n';
+import type { IconName } from '../lib/icons';
+import { TOPICS } from '../lib/site';
+import { topicQuery } from '../lib/topics';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = dict(lang);
+const p = t.programas;
+const u = (path: string) => href(lang, path);
+const upcoming = await upcomingEvents(lang);
+const icons: IconName[] = ['file', 'compass', 'shield', 'users'];
+const photoIds = ['programas/orientacion-migratoria', 'programas/navegar-el-sistema', 'programas/conoce-tus-derechos', 'programas/consultas'];
+// The first three blocks map to event topics; the fourth (consultas) happens at every event.
+const blockTopic = (i: number) => TOPICS[i];
+const [before, after] = p.nextMini.split('{countdown}');
+const fill = (s: string, city: string, time: string) => s.replace('{city}', city).replace('{time}', time);
+const jsonLd = [await faqJsonLd(lang, 'programas')];
+---
+<Layout lang={lang} title={t.pageTitles.programas} description={t.pageDescriptions.programas} ogKey="programas" jsonLd={jsonLd}>
+  <div class="container page-hero">
+    <Pill>{p.pill}</Pill>
+    <h1 class="h1">{p.title}</h1>
+    <p class="lead">{p.lead}</p>
+  </div>
+
+  <div class="section section--tight section--flush-top">
+    <div class="container">
+      {
+        p.blocks.map((b, i) => {
+          const topic = blockTopic(i);
+          const next = topic ? upcoming.find((e) => e.topic === topic) : undefined;
+          return (
+            <article class={i % 2 ? 'pblock pblock--flip' : 'pblock'}>
+              <div class="pblock__text">
+                <div class="pblock__icon"><Icon name={icons[i]} /></div>
+                <h2>{b.title}</h2>
+                <p>{b.body}</p>
+                <ul class="chips">{b.chips.map((c) => <li>{c}</li>)}</ul>
+                {topic ? (
+                  <div>
+                    {next && (
+                      <div class="next-mini">
+                        <div class="date-block"><b>{next.day}</b><small>{next.month}</small></div>
+                        <div class="next-mini__text">
+                          <h3>{next.title}</h3>
+                          <span>
+                            {fill(before, next.city, next.timeLabel)}
+                            <Countdown lang={lang} date={next.date} />
+                            {fill(after ?? '', next.city, next.timeLabel)}
+                          </span>
+                        </div>
+                        {next.registrationOpen ? (
+                          <a class="btn btn--navy btn--sm" href={next.url} data-event={next.slug}>{t.events.reserveShort}</a>
+                        ) : (
+                          <a class="btn btn--ghost btn--sm" href={next.url}>{t.events.viewEvent}</a>
+                        )}
+                      </div>
+                    )}
+                    <div class="pblock__links">
+                      <a class="btn btn--ghost btn--sm" href={u('/eventos') + topicQuery(topic)}>{p.topicLink}<Icon name="arrow" /></a>
+                    </div>
+                  </div>
+                ) : (
+                  <a class="btn btn--ghost btn--sm" href={u('/eventos')}>{p.upcomingLink}<Icon name="arrow" /></a>
+                )}
+              </div>
+              <Photo id={photoIds[i]} lang={lang} />
+            </article>
+          );
+        })
+      }
+    </div>
+  </div>
+
+  <div class="section section--tight">
+    <div class="container">
+      <div class="sec-head">
+        <div>
+          <Pill>{p.faqPill}</Pill>
+          <h2 class="h2">{p.faqTitle}</h2>
+        </div>
+      </div>
+      <FaqList lang={lang} group="programas" />
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,95 @@
+---
+import Honeypot from '../components/Honeypot.astro';
+import Icon from '../components/Icon.astro';
+import Pill from '../components/Pill.astro';
+import Layout from '../layouts/Layout.astro';
+import { dict, href, type Lang } from '../lib/i18n';
+import type { IconName } from '../lib/icons';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = dict(lang);
+const v = t.involucrate;
+const u = (p: string) => href(lang, p);
+const pathIcons: { icon: IconName; cls: string; href: string }[] = [
+  { icon: 'hand', cls: '', href: '#formulario' },
+  { icon: 'building', cls: 'path__icon--navy', href: '#formulario' },
+  { icon: 'gift', cls: 'path__icon--gold', href: u('/donar') },
+];
+const roleIcons: IconName[] = ['scale', 'file', 'language', 'users', 'camera'];
+---
+<Layout lang={lang} title={t.pageTitles.involucrate} description={t.pageDescriptions.involucrate} ogKey="involucrate">
+  <div class="container page-hero">
+    <Pill>{v.pill}</Pill>
+    <h1 class="h1">{v.title}</h1>
+    <p class="lead">{v.lead}</p>
+  </div>
+
+  <div class="section section--tight section--flush-top">
+    <div class="container">
+      <div class="paths">
+        {
+          v.paths.map((p, i) => (
+            <div class="path">
+              <div class={`path__icon ${pathIcons[i].cls}`.trim()}><Icon name={pathIcons[i].icon} /></div>
+              <h3>{p.title}</h3>
+              <p>{p.body}</p>
+              <a class="link" href={pathIcons[i].href}>{p.cta}<Icon name="arrow" /></a>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="section section--tight">
+    <div class="container">
+      <div class="sec-head">
+        <div>
+          <Pill>{v.rolesPill}</Pill>
+          <h2 class="h2">{v.rolesTitle}</h2>
+        </div>
+      </div>
+      <div class="roles">
+        {v.roles.map((r, i) => <div class="role"><Icon name={roleIcons[i]} /><h3>{r.title}</h3><p>{r.body}</p></div>)}
+      </div>
+    </div>
+  </div>
+
+  <div class="section section--tight" id="formulario">
+    <div class="container form-wrap">
+      <div class="prose">
+        <Pill>{v.formPill}</Pill>
+        <h2 class="h2">{v.formTitle}</h2>
+        <p class="muted">{v.formIntro}</p>
+        <ul class="v-list" style="margin-top:.5rem">{v.formPerks.map((x) => <li>{x}</li>)}</ul>
+      </div>
+      <form class="form panel" data-form="volunteer" novalidate>
+        <div class="form__fields">
+          <div class="form__row">
+            <div class="field"><label for="v-nombre">{t.common.labelName}</label><input id="v-nombre" name="name" type="text" autocomplete="name" placeholder={t.common.placeholderName} required /></div>
+            <div class="field"><label for="v-email">{t.common.labelEmail}</label><input id="v-email" name="email" type="email" autocomplete="email" placeholder={t.common.placeholderEmail} required /></div>
+          </div>
+          <div class="form__row">
+            <div class="field"><label for="v-tel">{t.common.labelPhone}</label><input id="v-tel" name="phone" type="tel" autocomplete="tel" placeholder={t.common.placeholderPhone} /></div>
+            <div class="field"><label for="v-ciudad">{v.labelCity}</label><input id="v-ciudad" name="city" type="text" autocomplete="address-level2" placeholder={v.placeholderCity} /></div>
+          </div>
+          <div class="field">
+            <label for="v-como">{v.labelHow}</label>
+            <select id="v-como" name="role" required>
+              <option value="">{t.common.chooseOption}</option>
+              {v.howOptions.map((o) => <option>{o}</option>)}
+            </select>
+          </div>
+          <div class="field"><label for="v-msg">{t.common.labelMessage}</label><textarea id="v-msg" name="message" placeholder={v.placeholderMessage}></textarea></div>
+          <label class="check"><input type="checkbox" name="consent" value="yes" required /><span>{v.consent}</span></label>
+          <Honeypot lang={lang} id="v" />
+        </div>
+        <div class="form__actions"><button class="btn btn--primary btn--lg" type="submit">{v.submit}</button></div>
+        <div class="form__success"><Icon name="check-circle" /><span>{v.success}</span></div>
+      </form>
+    </div>
+  </div>
+</Layout>

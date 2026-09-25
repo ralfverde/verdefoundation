@@ -1,0 +1,31 @@
+---
+import Icon from './Icon.astro';
+import RegistrationForm from './RegistrationForm.astro';
+import { dict, type Lang } from '../lib/i18n';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = dict(lang);
+---
+<div class="modal" id="modal-evento" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal__backdrop" data-close></div>
+  <div class="modal__panel">
+    <button class="modal__close" type="button" data-close aria-label={t.common.close}><Icon name="close" /></button>
+    <div class="modal__info">
+      <span class="pill"><Icon name="sparkle" fill /><span id="modal-topic"></span></span>
+      <h2 id="modal-title"></h2>
+      <div class="modal__meta">
+        <span><Icon name="calendar" /><span id="modal-date"></span></span>
+        <span><Icon name="clock" /><span id="modal-time"></span></span>
+        <span><Icon name="pin" /><span id="modal-place"></span></span>
+        <span><Icon name="compass" /><a class="modal__map" id="modal-map" href="#" target="_blank" rel="noopener">{t.modal.howToGet}<Icon name="arrow" /></a></span>
+      </div>
+      <p class="modal__desc" id="modal-desc"></p>
+      <ul class="agenda" id="modal-agenda"></ul>
+      <p style="margin-top:1.25rem"><a class="link" id="modal-detail" href="#">{t.modal.openDetail}<Icon name="arrow" /></a></p>
+    </div>
+    <RegistrationForm lang={lang} idPrefix="m" class="modal__form" inModal />
+  </div>
+</div>

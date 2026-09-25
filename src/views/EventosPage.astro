@@ -1,0 +1,145 @@
+---
+import EventRow from '../components/EventRow.astro';
+import Icon from '../components/Icon.astro';
+import Photo from '../components/Photo.astro';
+import Pill from '../components/Pill.astro';
+import WherePanel from '../components/WherePanel.astro';
+import Layout from '../layouts/Layout.astro';
+import { monthHeading } from '../lib/dates';
+import { pastEvents, upcomingEvents, type EventView } from '../lib/events';
+import { dict, fmt, href, type Lang } from '../lib/i18n';
+import type { IconName } from '../lib/icons';
+import { TOPICS } from '../lib/site';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = dict(lang);
+const e = t.eventos;
+const u = (p: string) => href(lang, p);
+const upcoming = await upcomingEvents(lang);
+const past = await pastEvents(lang);
+const cities = [...new Set(upcoming.map((ev) => ev.city))];
+
+// Group the upcoming list by month for the .month-head separators.
+const groups: { heading: string; events: EventView[] }[] = [];
+for (const ev of upcoming) {
+  const heading = monthHeading(ev.date, lang);
+  const last = groups[groups.length - 1];
+  if (last && last.heading === heading) last.events.push(ev);
+  else groups.push({ heading, events: [ev] });
+}
+const expectIcons: IconName[] = ['file', 'users', 'coffee'];
+const countLabel = upcoming.length === 1 ? t.events.count1 : fmt(t.events.countN, { n: upcoming.length });
+---
+<Layout lang={lang} title={t.pageTitles.eventos} description={t.pageDescriptions.eventos} ogKey="eventos">
+  <div class="container page-hero">
+    <Pill>{e.pill}</Pill>
+    <h1 class="h1">{e.title}</h1>
+    <p class="lead">{e.lead}</p>
+  </div>
+
+  <div class="section section--tight section--flush-top">
+    <div class="container">
+      {
+        upcoming.length > 0 && (
+          <div class="filters">
+            <label for="f-city">{e.filterCity}</label>
+            <div class="select">
+              <select id="f-city" data-filter="city">
+                <option value="">{e.allCities}</option>
+                {cities.map((c) => <option value={c}>{c}</option>)}
+              </select>
+              <Icon name="chevron" />
+            </div>
+            <label for="f-topic">{e.filterTopic}</label>
+            <div class="select">
+              <select id="f-topic" data-filter="topic">
+                <option value="">{e.allTopics}</option>
+                {TOPICS.map((topic) => <option value={topic}>{t.events.topics[topic]}</option>)}
+              </select>
+              <Icon name="chevron" />
+            </div>
+            <span class="filters__count" id="events-count" aria-live="polite">{countLabel}</span>
+          </div>
+        )
+      }
+      <div class="event-list" id="all-events">
+        {
+          groups.map((g) => (
+            <>
+              <div class="month-head" data-month-head>
+                <h2>{g.heading}</h2>
+              </div>
+              {g.events.map((ev) => <EventRow lang={lang} event={ev} />)}
+            </>
+          ))
+        }
+        <div class="events-empty" data-events-empty hidden={upcoming.length > 0}>
+          <b>{upcoming.length ? t.events.emptyTitle : t.events.noneTitle}</b>
+          {upcoming.length ? t.events.emptyBody : t.events.noneBody}
+          <br />
+          <a class="btn btn--ghost btn--sm" href="#boletin" style="margin-top:1rem">{t.events.emptyCta}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {
+    past.length > 0 && (
+      <div class="section section--tight">
+        <div class="container">
+          <div class="sec-head">
+            <div>
+              <h2 class="h2">{t.events.pastTitle}</h2>
+            </div>
+          </div>
+          <div class="event-list">
+            {past.map((ev) => <EventRow lang={lang} event={ev} />)}
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  <div class="section section--tight">
+    <div class="container"><WherePanel lang={lang} events={upcoming} /></div>
+  </div>
+
+  <div class="section section--tight">
+    <div class="container">
+      <div class="sec-head">
+        <div>
+          <Pill>{e.expectPill}</Pill>
+          <h2 class="h2">{e.expectTitle}</h2>
+        </div>
+      </div>
+      <div class="expect">
+        {
+          e.expect.map((x, i) => (
+            <div>
+              <Icon name={expectIcons[i]} />
+              <h3>{x.title}</h3>
+              <p>{x.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="section section--tight">
+    <div class="container">
+      <div class="panel panel--navy host">
+        <div>
+          <Pill style="background:rgba(255,255,255,.1);color:#9EE3C4">{e.hostPill}</Pill>
+          <h2 class="h2" style="margin-top:.9rem">{e.hostTitle}</h2>
+          <p style="margin-top:1rem;max-width:34rem">{e.hostBody}</p>
+          <a class="btn btn--light" href={u('/contacto')} style="margin-top:1.5rem">{e.hostCta}<Icon name="arrow" /></a>
+        </div>
+        <Photo id="eventos/sede-aliada" lang={lang} style="min-height:260px" />
+      </div>
+    </div>
+  </div>
+</Layout>

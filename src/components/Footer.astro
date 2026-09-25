@@ -1,0 +1,78 @@
+---
+import Icon from './Icon.astro';
+import Logo from './Logo.astro';
+import Photo from './Photo.astro';
+import NewsletterForm from './NewsletterForm.astro';
+import { dict, fmt, href, type Lang } from '../lib/i18n';
+import { SITE } from '../lib/site';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = dict(lang);
+const f = t.footer;
+const foundationLinks = ['/mision', '/programas', '/eventos', '/donar#transparencia'];
+const participateLinks = ['/involucrate', '/involucrate', '/donar', '/contacto'];
+const year = new Date().getFullYear();
+---
+<footer class="footer">
+  <div class="newsletter">
+    <div class="container newsletter__inner">
+      <div>
+        <h2>{t.newsletter.title}</h2>
+        <p>{t.newsletter.body}</p>
+      </div>
+      <NewsletterForm lang={lang} />
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a class="brand" href={href(lang, '/')} aria-label={t.common.brandAria}>
+          <Logo />
+          <span class="brand__name">{t.common.brandFirst} <span>{t.common.brandSecond}</span></span>
+        </a>
+        <p>{t.meta.orgDescription}</p>
+        <div class="social">
+          <a href={SITE.instagramUrl} aria-label="Instagram" target="_blank" rel="noopener"><Icon name="instagram" /></a>
+          <a href={SITE.facebookUrl} aria-label="Facebook" target="_blank" rel="noopener"><Icon name="facebook" /></a>
+          <a href={`https://wa.me/${SITE.whatsappNumber}`} aria-label="WhatsApp" target="_blank" rel="noopener"><Icon name="whatsapp" /></a>
+        </div>
+      </div>
+      <div>
+        <h3>{f.colFoundation}</h3>
+        <ul>{f.linksFoundation.map((label, i) => <li><a href={href(lang, foundationLinks[i])}>{label}</a></li>)}</ul>
+      </div>
+      <div>
+        <h3>{f.colParticipate}</h3>
+        <ul>{f.linksParticipate.map((label, i) => <li><a href={href(lang, participateLinks[i])}>{label}</a></li>)}</ul>
+      </div>
+      <div>
+        <h3>{f.colContact}</h3>
+        <ul class="contact-list">
+          <li><Icon name="mail" /><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
+          <li><Icon name="phone" /><span>{SITE.phoneDisplay}</span></li>
+          <li><Icon name="pin" /><span>{SITE.city}</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>{f.colGallery}</h3>
+        <div class="gallery" role="group" aria-label={f.galleryAria}>
+          {[1, 2, 3, 4, 5, 6].map((n) => <Photo id={`galeria/evento-${n}`} lang={lang} sizes="120px" />)}
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="legal">
+        {fmt(f.legal, { year })}
+        {SITE.ein && <> {fmt(f.ein, { ein: SITE.ein })}</>}
+      </p>
+      <nav aria-label={f.legalNav}>
+        <a href={href(lang, '/privacidad')}>{f.privacy}</a>
+        <a href={href(lang, '/terminos')}>{f.terms}</a>
+      </nav>
+    </div>
+  </div>
+</footer>

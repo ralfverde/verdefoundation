@@ -1,0 +1,24 @@
+---
+import Icon from '../components/Icon.astro';
+import Pill from '../components/Pill.astro';
+import Layout from '../layouts/Layout.astro';
+import { dict, href, type Lang } from '../lib/i18n';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = dict(lang);
+const n = t.notFound;
+---
+<Layout lang={lang} title={t.pageTitles.notFound} description={t.pageDescriptions.notFound} ogKey="inicio" noindex>
+  <div class="container page-hero">
+    <Pill>{n.pill}</Pill>
+    <h1 class="h1">{n.title}</h1>
+    <p class="lead">{n.lead}</p>
+    <div class="hero__cta">
+      <a class="btn btn--primary btn--lg" href={href(lang, '/')}>{n.ctaHome}</a>
+      <a class="btn btn--ghost btn--lg" href={href(lang, '/eventos')}><Icon name="calendar" />{n.ctaEvents}</a>
+    </div>
+  </div>
+</Layout>

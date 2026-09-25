@@ -1,0 +1,13 @@
+---
+import { ICONS, type IconName } from '../lib/icons';
+
+interface Props {
+  name: IconName;
+  class?: string;
+  fill?: boolean;
+}
+
+const { name, class: cls = '', fill = false } = Astro.props;
+const classes = ['icon', fill && 'icon--fill', cls].filter(Boolean).join(' ');
+---
+<svg class={classes} viewBox="0 0 24 24" aria-hidden="true" set:html={ICONS[name]} />

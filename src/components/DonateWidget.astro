@@ -1,0 +1,39 @@
+---
+import Icon from './Icon.astro';
+import { dict, fmt, type Lang } from '../lib/i18n';
+
+interface Props {
+  lang: Lang;
+  id?: string;
+  /** Heading level for "Haz tu donación" (h2 when it is the first section heading on the page) */
+  headingLevel?: 'h2' | 'h3';
+}
+const { lang, id, headingLevel = 'h3' } = Astro.props;
+const Heading = headingLevel;
+const t = dict(lang).donate;
+const AMOUNTS = [25, 50, 100, 250];
+const initial = 50;
+---
+<div class="donate-widget" data-donate id={id}>
+  <div class="donate-widget__head">
+    <Heading>{t.title}</Heading>
+    <span class="chip"><Icon name="lock" />{t.secure}</span>
+  </div>
+  <div class="seg" role="group" aria-label={t.freqAria}>
+    <button type="button" class="is-on" data-freq="once" aria-pressed="true">{t.once}</button>
+    <button type="button" data-freq="monthly" aria-pressed="false">{t.monthly}</button>
+  </div>
+  <div class="amounts" role="group" aria-label={t.amountAria}>
+    {
+      AMOUNTS.map((a) => (
+        <button type="button" class={a === initial ? 'is-on' : undefined} data-amount={a} aria-pressed={a === initial ? 'true' : 'false'}>
+          ${a}
+        </button>
+      ))
+    }
+  </div>
+  <label class="amount-other"><span>$</span><input type="number" min="1" step="1" inputmode="numeric" placeholder={t.other} data-amount-other aria-label={t.other} /></label>
+  <div class="impact-line"><Icon name="heart" /><span data-impact>{fmt(t.impactOnce, { money: `$${initial}`, what: t.impacts[initial] })}</span></div>
+  <button type="button" class="btn btn--primary btn--lg btn--block" data-donate-btn>{fmt(t.btnOnce, { money: `$${initial}` })}</button>
+  <p class="donate-widget__foot"><Icon name="mail" />{t.foot}</p>
+</div>

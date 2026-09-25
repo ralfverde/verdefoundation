@@ -1,0 +1,94 @@
+---
+import '@fontsource/fira-sans/latin-400.css';
+import '@fontsource/fira-sans/latin-500.css';
+import '@fontsource/fira-sans/latin-600.css';
+import '@fontsource/fira-sans/latin-700.css';
+import '@fontsource/fira-sans/latin-800.css';
+import '../styles/global.css';
+// Preload the most used weights so the swap from the fallback font happens
+// before first paint (avoids layout shift in headings).
+import fira400 from '@fontsource/fira-sans/files/fira-sans-latin-400-normal.woff2?url';
+import fira600 from '@fontsource/fira-sans/files/fira-sans-latin-600-normal.woff2?url';
+import fira800 from '@fontsource/fira-sans/files/fira-sans-latin-800-normal.woff2?url';
+
+import Analytics from '../components/Analytics.astro';
+import Announce from '../components/Announce.astro';
+import EventModal from '../components/EventModal.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import MobileCta from '../components/MobileCta.astro';
+import Seo from '../components/Seo.astro';
+import Toast from '../components/Toast.astro';
+import { clientEvent, upcomingEvents } from '../lib/events';
+import { dict, type Lang } from '../lib/i18n';
+import { STRIPE_READY } from '../lib/site';
+import { inlineJson } from '../lib/json';
+
+interface Props {
+  lang: Lang;
+  title?: string;
+  description?: string;
+  /** Key for the generated OG image: /og/<lang>/<ogKey>.png */
+  ogKey: string;
+  noindex?: boolean;
+  jsonLd?: Record<string, unknown>[];
+}
+
+const { lang, title, description, ogKey, noindex, jsonLd } = Astro.props;
+const t = dict(lang);
+const upcoming = await upcomingEvents(lang);
+
+// Strings and data the browser scripts need (kept small on purpose).
+const clientData = {
+  lang,
+  stripeReady: STRIPE_READY,
+  events: Object.fromEntries(upcoming.map((e) => [e.slug, clientEvent(e)])),
+  t: {
+    enToast: t.common.enToast,
+    formError: t.common.formError,
+    countdownPast: t.events.countdownPast,
+    countdownToday: t.events.countdownToday,
+    countdownTomorrow: t.events.countdownTomorrow,
+    countdownDays: t.events.countdownDays,
+    spotsLeft: t.events.spotsLeft,
+    waitlist: t.events.waitlist,
+    reserved: t.events.reserved,
+    ticketCount: t.events.ticketCount,
+    count1: t.events.count1,
+    countN: t.events.countN,
+    icsToast: t.modal.icsToast,
+    shareText: t.modal.shareText,
+    donate: t.donate,
+  },
+};
+---
+<!doctype html>
+<html lang={t.meta.htmlLang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0B2545" />
+    {[fira400, fira600, fira800].map((f) => <link rel="preload" href={f} as="font" type="font/woff2" crossorigin />)}
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <Seo lang={lang} title={title} description={description} ogImage={`/og/${lang}/${ogKey}.png`} noindex={noindex} jsonLd={jsonLd} />
+    <Analytics />
+  </head>
+  <body>
+    <a class="skip" href="#contenido">{t.common.skip}</a>
+    <Announce lang={lang} next={upcoming[0]} />
+    <Header lang={lang} />
+    <main id="contenido" tabindex="-1">
+      <slot />
+    </main>
+    <Footer lang={lang} />
+    <MobileCta lang={lang} />
+    <EventModal lang={lang} />
+    <Toast />
+    <script type="application/json" id="fv-data" set:html={inlineJson(clientData)} />
+    <script>
+      import '../scripts/main';
+    </script>
+  </body>
+</html>

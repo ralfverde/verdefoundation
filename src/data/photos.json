@@ -1,0 +1,226 @@
+{
+  "inicio/hero": {
+    "page": "/ (inicio), hero",
+    "variant": "",
+    "alt": {
+      "es": "Familias escuchando una charla en un salón comunitario, vista desde el fondo",
+      "en": "Families listening to a talk in a community hall, seen from the back"
+    }
+  },
+  "inicio/consulta-voluntaria": {
+    "page": "/ (inicio), Lo que hacemos",
+    "variant": "navy",
+    "alt": {
+      "es": "Voluntaria explicando un formulario a una pareja, plano medio",
+      "en": "Volunteer explaining a form to a couple, medium shot"
+    },
+    "tag": {
+      "es": "Foto: consulta con voluntaria",
+      "en": "Photo: volunteer consultation"
+    }
+  },
+  "inicio/mesa-registro": {
+    "page": "/ (inicio), Cómo funciona",
+    "variant": "sand",
+    "alt": {
+      "es": "Mesa de registro con guías impresas y una voluntaria recibiendo a una familia",
+      "en": "Registration table with printed guides and a volunteer welcoming a family"
+    },
+    "tag": {
+      "es": "Foto: mesa de registro",
+      "en": "Photo: registration table"
+    }
+  },
+  "inicio/familia-verde": {
+    "page": "/ (inicio), Una fundación familiar",
+    "variant": "navy",
+    "alt": {
+      "es": "La familia Verde en un evento, retrato grupal informal",
+      "en": "The Verde family at an event, informal group portrait"
+    },
+    "tag": {
+      "es": "Foto: la familia Verde",
+      "en": "Photo: the Verde family"
+    }
+  },
+  "mision/charla": {
+    "page": "/mision, cabecera",
+    "variant": "",
+    "alt": {
+      "es": "Salón lleno durante una charla, con el logo de la Fundación en un banner al fondo",
+      "en": "Full hall during a talk, with the Foundation's logo on a banner in the background"
+    },
+    "tag": {
+      "es": "Foto: charla en curso",
+      "en": "Photo: talk in progress"
+    }
+  },
+  "mision/guia-impresa": {
+    "page": "/mision, Por qué existimos",
+    "variant": "sand",
+    "alt": {
+      "es": "Detalle de manos sosteniendo la guía impresa de la Fundación",
+      "en": "Close-up of hands holding the Foundation's printed guide"
+    },
+    "tag": {
+      "es": "Foto: la guía impresa",
+      "en": "Photo: the printed guide"
+    }
+  },
+  "mision/rafael-verde": {
+    "page": "/mision, Quiénes estamos detrás",
+    "variant": "",
+    "alt": {
+      "es": "Retrato de Rafael Verde, fondo neutro",
+      "en": "Portrait of Rafael Verde, neutral background"
+    },
+    "tag": {
+      "es": "Retrato",
+      "en": "Portrait"
+    }
+  },
+  "mision/junta-vicepresidencia": {
+    "page": "/mision, Quiénes estamos detrás",
+    "variant": "",
+    "alt": {
+      "es": "Retrato de miembro de la junta",
+      "en": "Portrait of a board member"
+    }
+  },
+  "mision/junta-tesoreria": {
+    "page": "/mision, Quiénes estamos detrás",
+    "variant": "",
+    "alt": {
+      "es": "Retrato de miembro de la junta",
+      "en": "Portrait of a board member"
+    }
+  },
+  "mision/junta-coordinacion": {
+    "page": "/mision, Quiénes estamos detrás",
+    "variant": "",
+    "alt": {
+      "es": "Retrato de miembro de la junta",
+      "en": "Portrait of a board member"
+    }
+  },
+  "programas/orientacion-migratoria": {
+    "page": "/programas, Orientación migratoria",
+    "variant": "",
+    "alt": {
+      "es": "Abogado voluntario frente a una pizarra explicando un diagrama de opciones",
+      "en": "Volunteer lawyer at a whiteboard explaining a diagram of options"
+    },
+    "tag": {
+      "es": "Foto: charla de orientación",
+      "en": "Photo: guidance talk"
+    }
+  },
+  "programas/navegar-el-sistema": {
+    "page": "/programas, Navegar el sistema",
+    "variant": "sand",
+    "alt": {
+      "es": "Especialista bancaria conversando con una madre y su hijo en una mesa",
+      "en": "Banking specialist talking with a mother and her son at a table"
+    },
+    "tag": {
+      "es": "Foto: sesión práctica",
+      "en": "Photo: practical session"
+    }
+  },
+  "programas/conoce-tus-derechos": {
+    "page": "/programas, Conoce tus derechos",
+    "variant": "navy",
+    "alt": {
+      "es": "Grupo de asistentes levantando la mano para preguntar",
+      "en": "Group of attendees raising their hands to ask questions"
+    },
+    "tag": {
+      "es": "Foto: ronda de preguntas",
+      "en": "Photo: questions round"
+    }
+  },
+  "programas/consultas": {
+    "page": "/programas, Consultas con voluntarios",
+    "variant": "",
+    "alt": {
+      "es": "Fila ordenada de personas esperando su consulta, con voluntarios en mesas al fondo",
+      "en": "Orderly line of people waiting for their consultation, with volunteers at tables in the background"
+    },
+    "tag": {
+      "es": "Foto: consultas al cierre",
+      "en": "Photo: closing consultations"
+    }
+  },
+  "eventos/sede-aliada": {
+    "page": "/eventos, Trae un evento a tu comunidad",
+    "variant": "navy",
+    "alt": {
+      "es": "Salón parroquial preparado con sillas y el banner de la Fundación",
+      "en": "Parish hall set up with chairs and the Foundation's banner"
+    },
+    "tag": {
+      "es": "Foto: sede aliada",
+      "en": "Photo: partner venue"
+    }
+  },
+  "contacto/mapa": {
+    "page": "/contacto, junto a los datos de contacto",
+    "variant": "",
+    "alt": {
+      "es": "Mapa de Miami con la sede marcada",
+      "en": "Map of Miami with the office marked"
+    },
+    "tag": {
+      "es": "Mapa",
+      "en": "Map"
+    }
+  },
+  "galeria/evento-1": {
+    "page": "Pie de página, Galería (todas las páginas)",
+    "variant": "",
+    "alt": {
+      "es": "Evento 1",
+      "en": "Event 1"
+    }
+  },
+  "galeria/evento-2": {
+    "page": "Pie de página, Galería (todas las páginas)",
+    "variant": "navy",
+    "alt": {
+      "es": "Evento 2",
+      "en": "Event 2"
+    }
+  },
+  "galeria/evento-3": {
+    "page": "Pie de página, Galería (todas las páginas)",
+    "variant": "sand",
+    "alt": {
+      "es": "Evento 3",
+      "en": "Event 3"
+    }
+  },
+  "galeria/evento-4": {
+    "page": "Pie de página, Galería (todas las páginas)",
+    "variant": "sand",
+    "alt": {
+      "es": "Evento 4",
+      "en": "Event 4"
+    }
+  },
+  "galeria/evento-5": {
+    "page": "Pie de página, Galería (todas las páginas)",
+    "variant": "",
+    "alt": {
+      "es": "Evento 5",
+      "en": "Event 5"
+    }
+  },
+  "galeria/evento-6": {
+    "page": "Pie de página, Galería (todas las páginas)",
+    "variant": "navy",
+    "alt": {
+      "es": "Evento 6",
+      "en": "Event 6"
+    }
+  }
+}

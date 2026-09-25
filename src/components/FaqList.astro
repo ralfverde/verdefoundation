@@ -1,0 +1,27 @@
+---
+import { getCollection } from 'astro:content';
+import Icon from './Icon.astro';
+import type { Lang } from '../lib/i18n';
+
+interface Props {
+  lang: Lang;
+  group: 'programas' | 'donar';
+}
+const { lang, group } = Astro.props;
+const faqs = (await getCollection('faqs', (f) => f.id.startsWith(`${lang}/`) && f.data.group === group)).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+<div class="faq-list">
+  {
+    faqs.map((f) => (
+      <details class="faq">
+        <summary>
+          {f.data.question}
+          <Icon name="plus" />
+        </summary>
+        <p>{f.body.trim()}</p>
+      </details>
+    ))
+  }
+</div>

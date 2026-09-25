@@ -1,0 +1,812 @@
+{
+  "meta": {
+    "htmlLang": "es",
+    "ogLocale": "es_US",
+    "homeTitle": "Fundación Verde | Orientación gratuita para la comunidad inmigrante",
+    "titleTemplate": "{page} | Fundación Verde",
+    "description": "Fundación Verde organiza eventos presenciales y gratuitos donde abogados y especialistas voluntarios explican, en español, cómo obtener un estatus migratorio y cómo funciona el sistema en Estados Unidos.",
+    "ogDescription": "Eventos gratuitos de orientación legal y práctica para la comunidad inmigrante en Florida.",
+    "orgDescription": "Orientación gratuita, en persona y en español para la comunidad inmigrante en Estados Unidos."
+  },
+  "common": {
+    "skip": "Saltar al contenido",
+    "brandAria": "Fundación Verde, inicio",
+    "brandFirst": "Fundación",
+    "brandSecond": "Verde",
+    "langGroup": "Idioma",
+    "enTitle": "Versión en inglés en la siguiente fase",
+    "enToast": "La versión en inglés estará disponible con el lanzamiento del sitio.",
+    "donate": "Donar",
+    "menuOpen": "Abrir menú",
+    "menuClose": "Cerrar menú",
+    "close": "Cerrar",
+    "fl": "FL",
+    "free": "Gratis",
+    "entryFree": "Entrada gratuita",
+    "formError": "No pudimos enviar el formulario. Inténtalo de nuevo o escríbenos a hola@fundacionverde.org.",
+    "chooseOption": "Elige una opción",
+    "placeholderName": "Tu nombre",
+    "placeholderEmail": "nombre@correo.com",
+    "placeholderPhone": "(305) 000 0000",
+    "labelName": "Nombre completo",
+    "labelEmail": "Correo electrónico",
+    "labelPhone": "Teléfono o WhatsApp",
+    "labelMessage": "Mensaje",
+    "honeypot": "No completes este campo"
+  },
+  "nav": {
+    "aria": "Navegación principal",
+    "inicio": "Inicio",
+    "mision": "Misión",
+    "programas": "Programas",
+    "eventos": "Eventos",
+    "involucrate": "Involúcrate",
+    "contacto": "Contacto"
+  },
+  "pageTitles": {
+    "mision": "Nuestra misión",
+    "programas": "Programas",
+    "eventos": "Eventos",
+    "involucrate": "Involúcrate",
+    "donar": "Donar",
+    "gracias": "Gracias por tu donación",
+    "contacto": "Contacto",
+    "privacidad": "Aviso de privacidad",
+    "terminos": "Términos de uso",
+    "notFound": "Página no encontrada"
+  },
+  "pageDescriptions": {
+    "mision": "Fundación Verde es una fundación familiar en Miami que ofrece orientación clara, en persona, en español y sin costo a la comunidad inmigrante.",
+    "programas": "Orientación migratoria, navegar el sistema, conoce tus derechos y consultas con voluntarios: cuatro programas gratuitos, en persona y en español.",
+    "eventos": "Calendario de eventos presenciales, gratuitos y en español de Fundación Verde en Florida. Reserva tu lugar.",
+    "involucrate": "Voluntariado, aliados y sedes, donación y patrocinio. Hay más de una forma de ayudar a Fundación Verde.",
+    "donar": "Tu donación paga el salón, las guías impresas, los intérpretes y el café. Mantén los eventos de Fundación Verde gratuitos.",
+    "gracias": "Gracias por apoyar los eventos gratuitos de Fundación Verde.",
+    "contacto": "Escríbenos para organizar un evento en tu comunidad, ser voluntario, aliado o donante.",
+    "privacidad": "Aviso de privacidad de Fundación Verde.",
+    "terminos": "Términos de uso del sitio de Fundación Verde.",
+    "notFound": "La página que buscas no existe."
+  },
+  "announce": {
+    "text": "Próximo evento: <b>{date}, {city}</b>. Entrada gratuita, cupos limitados.",
+    "link": "Ver eventos",
+    "close": "Cerrar aviso"
+  },
+  "events": {
+    "countdownPast": "Ya pasó",
+    "countdownToday": "Es hoy",
+    "countdownTomorrow": "Es mañana",
+    "countdownDays": "Faltan {n} días",
+    "spotsLeft": "Quedan {n} lugares",
+    "waitlist": "Lista de espera",
+    "reserved": "{n} reservados",
+    "ticketLabel": "Próximo evento",
+    "ticketAria": "Próximo evento",
+    "ticketCount": "<b>{left} lugares</b> disponibles de {capacity}",
+    "ticketCta": "Reservar mi lugar",
+    "reserve": "Reservar lugar",
+    "reserveShort": "Reservar",
+    "viewEvent": "Ver evento",
+    "viewDetails": "Ver detalles",
+    "count1": "1 evento",
+    "countN": "{n} eventos",
+    "timeRange": "{start} a {end}",
+    "emptyTitle": "No hay eventos con esos filtros",
+    "emptyBody": "Prueba otra ciudad o suscríbete al boletín y te avisamos cuando haya uno cerca de ti.",
+    "emptyCta": "Avisarme del próximo",
+    "noneTitle": "Pronto anunciaremos nuevas fechas",
+    "noneBody": "Suscríbete al boletín y te avisamos cuando haya un evento cerca de ti.",
+    "pastTitle": "Eventos anteriores",
+    "pastDone": "Evento realizado",
+    "pastNotice": "Este evento ya se realizó. Consulta los próximos eventos en el calendario.",
+    "closedNotice": "Las reservas para este evento están cerradas.",
+    "backToCalendar": "Volver al calendario",
+    "topics": {
+      "Orientación migratoria": "Orientación migratoria",
+      "Navegar el sistema": "Navegar el sistema",
+      "Conoce tus derechos": "Conoce tus derechos"
+    }
+  },
+  "modal": {
+    "howToGet": "Cómo llegar",
+    "agenda": [
+      "Bienvenida, registro y entrega de la guía impresa",
+      "Charla principal del tema, en español",
+      "Preguntas abiertas",
+      "Consultas individuales con voluntarios, por orden de llegada"
+    ],
+    "formTitle": "Reserva tu lugar",
+    "formIntro": "Es gratis. Reservar nos ayuda a preparar suficientes guías y sillas.",
+    "labelWhatsapp": "WhatsApp",
+    "labelPeople": "Personas que vienen",
+    "peopleMore": "5 o más",
+    "labelEmailOptional": "Correo (opcional)",
+    "optIn": "Quiero recibir avisos de próximos eventos.",
+    "submit": "Confirmar mi lugar",
+    "success": "Listo, tu lugar está reservado. Te enviamos la confirmación por WhatsApp.",
+    "addToCalendar": "Añadir a mi calendario",
+    "shareWhatsapp": "Compartir por WhatsApp",
+    "otherEvents": "Ver otros eventos",
+    "icsToast": "Archivo de calendario descargado.",
+    "shareText": "{title}\n{date}, {time}\n{place}\nEntrada gratuita. Reserva aquí: {url}",
+    "openDetail": "Ver la página del evento"
+  },
+  "donate": {
+    "title": "Haz tu donación",
+    "secure": "Pago seguro",
+    "freqAria": "Frecuencia",
+    "once": "Una vez",
+    "monthly": "Cada mes",
+    "amountAria": "Monto",
+    "other": "Otro monto",
+    "impactOnce": "Con {money} cubrimos {what}.",
+    "impactMonthly": "Cada mes, con {money} cubrimos {what}.",
+    "impacts": {
+      "25": "guías impresas para 10 familias",
+      "50": "materiales para 20 familias",
+      "100": "un intérprete durante toda una sesión",
+      "250": "el alquiler del salón para un evento"
+    },
+    "impactFallbackOne": "guías impresas para {n} familia",
+    "impactFallbackMany": "guías impresas para {n} familias",
+    "btnOnce": "Donar {money}",
+    "btnMonthly": "Donar {money} al mes",
+    "foot": "Recibirás un recibo por correo.",
+    "notReady": "La pasarela de pago se conecta en la versión final del sitio.",
+    "checkoutError": "No pudimos abrir la página de pago. Inténtalo de nuevo en unos minutos."
+  },
+  "where": {
+    "pill": "Dónde estamos",
+    "title": "Seis sedes en Florida para 2027",
+    "body": "Empezamos en Miami-Dade, donde vive la familia Verde, y llegamos a Orlando y Tampa con aliados locales. Si tu ciudad no está, escríbenos.",
+    "mapAria": "Mapa de Florida con las sedes",
+    "regionSubs": {
+      "Orlando": "Centro de Florida",
+      "Tampa": "Costa oeste"
+    },
+    "multiSince": "{n} sedes, desde {month}",
+    "event1": "1 evento",
+    "eventN": "{n} eventos"
+  },
+  "home": {
+    "heroPill": "Fundación familiar en Miami",
+    "heroTitle": "Orientación gratuita para <em>construir tu vida</em> en Estados Unidos",
+    "heroLead": "Organizamos eventos presenciales y gratuitos donde abogados y especialistas voluntarios explican, en español y sin letra pequeña, cómo obtener un estatus migratorio y cómo funciona el sistema de este país.",
+    "heroCtaEvents": "Ver próximos eventos",
+    "heroCtaSupport": "Cómo apoyar",
+    "takeawaysLabel": "Lo que te llevas de cada evento",
+    "takeaways": [
+      {
+        "title": "Un plan claro",
+        "body": "Sabrás qué opción aplica a tu caso y cuál es el siguiente paso."
+      },
+      {
+        "title": "Respuestas de un abogado",
+        "body": "Consultas breves con voluntarios con licencia, sin costo."
+      },
+      {
+        "title": "Una guía en español",
+        "body": "Material impreso para llevar a casa y compartir con tu familia."
+      }
+    ],
+    "heroChip": "Abogados, paralegales e intérpretes voluntarios",
+    "stripLabel": "Con el apoyo de",
+    "partnerName": "Verde Law",
+    "partnerRole": "Abogados voluntarios",
+    "partnerSlotOrg": "Tu organización comunitaria",
+    "partnerSlotCompany": "Tu empresa",
+    "stripCta": "Sé un aliado",
+    "goalsPill": "Primer año",
+    "goalsTitle": "Nuestra meta para 2027",
+    "goalsIntro": "Empezamos en el sur de la Florida y crecemos según la demanda de la comunidad. Estas son las cifras con las que nos medimos.",
+    "goals": [
+      {
+        "value": "12",
+        "label": "eventos gratuitos en el año"
+      },
+      {
+        "value": "6",
+        "label": "sedes en Florida"
+      },
+      {
+        "value": "1,000",
+        "label": "familias orientadas en persona"
+      },
+      {
+        "value": "$0",
+        "label": "costo de entrada, siempre"
+      }
+    ],
+    "programsPill": "Lo que hacemos",
+    "programsTitle": "Información clara, en persona y sin costo",
+    "programsLead": "Cada evento combina una charla breve, tiempo para preguntas y consultas individuales con voluntarios. Trabajamos en cuatro frentes.",
+    "programsCta": "Ver los programas",
+    "programs": [
+      {
+        "title": "Orientación migratoria",
+        "body": "Las vías para obtener un estatus explicadas una por una: asilo, TPS, peticiones familiares, visas de trabajo y más. Qué requiere cada una y cuánto suele tardar."
+      },
+      {
+        "title": "Navegar el sistema",
+        "body": "Lo cotidiano que nadie explica: abrir una cuenta bancaria, inscribir a los hijos en la escuela, sacar la licencia, declarar impuestos y usar el sistema de salud."
+      },
+      {
+        "title": "Conoce tus derechos",
+        "body": "Qué puedes hacer y qué no tienes que hacer ante una autoridad, cómo identificar fraudes y a quién acudir si algo sale mal."
+      },
+      {
+        "title": "Consultas con voluntarios",
+        "body": "Al cerrar cada evento, abogados y paralegales atienden preguntas individuales por orden de llegada. Sin cita y sin costo."
+      }
+    ],
+    "programLink": "Cómo funciona",
+    "programsCaption": "Cada evento cierra con consultas individuales",
+    "eventsPill": "Próximos eventos",
+    "eventsTitle": "Reserva tu lugar, es gratis",
+    "eventsLead": "Presenciales, en español y abiertos a toda la familia. Reservar asegura tu guía impresa.",
+    "eventsCta": "Ver el calendario completo",
+    "stepsNoteAria": "Datos del evento",
+    "stepsNotes": [
+      "Duración: 2 horas y media",
+      "Intérprete si lo necesitas",
+      "Puedes venir con tu familia"
+    ],
+    "stepsPill": "Cómo funciona",
+    "stepsTitle": "Así es un evento de Fundación Verde",
+    "steps": [
+      {
+        "title": "Regístrate sin costo",
+        "body": "Elige el evento, deja tu nombre y cuántas personas vienen contigo. Recibes la confirmación por WhatsApp o correo."
+      },
+      {
+        "title": "Llega y recibe tu guía",
+        "body": "Te esperamos con una guía impresa del tema del día. No necesitas traer documentos."
+      },
+      {
+        "title": "Escucha y pregunta",
+        "body": "Una charla de 45 minutos en español, seguida de preguntas abiertas."
+      },
+      {
+        "title": "Habla con un voluntario",
+        "body": "Consultas breves e individuales por orden de llegada, para orientar tu caso concreto."
+      }
+    ],
+    "promisePill": "Nuestra promesa",
+    "promiseTitle": "Cuatro cosas que no pasan en nuestros eventos",
+    "promises": [
+      "Nadie te cobra por entrar, por la guía ni por la consulta.",
+      "Nadie te pide tu estatus migratorio para participar.",
+      "Nadie te promete un resultado ni te vende un trámite.",
+      "Nadie que no sea abogado con licencia te da orientación legal."
+    ],
+    "givePill": "Apoya la fundación",
+    "giveTitle": "Tu aporte mantiene los eventos gratuitos",
+    "giveLead": "Cada evento cuesta imprimir guías, alquilar un salón, pagar intérpretes y ofrecer un café. Los voluntarios ponen su tiempo; tu donación cubre lo demás.",
+    "impacts": [
+      {
+        "amount": "$25",
+        "label": "Guías impresas para 10 familias"
+      },
+      {
+        "amount": "$50",
+        "label": "Materiales para 20 familias"
+      },
+      {
+        "amount": "$100",
+        "label": "Un intérprete durante toda una sesión"
+      },
+      {
+        "amount": "$250",
+        "label": "El alquiler del salón para un evento"
+      }
+    ],
+    "questionsPill": "Preguntas que escuchamos",
+    "questionsTitle": "Las preguntas con las que llega la gente",
+    "questionsLead": "Algunas de las más frecuentes. Cada evento responde las de su tema y deja tiempo para las tuyas.",
+    "questionsCta": "Ver los programas",
+    "questionLink": "Ver evento",
+    "questions": [
+      {
+        "q": "¿Puedo pedir a mi mamá si ya tengo la residencia?",
+        "topic": "Orientación migratoria"
+      },
+      {
+        "q": "Mi TPS vence este año. ¿Qué opciones tengo?",
+        "topic": "Orientación migratoria"
+      },
+      {
+        "q": "¿Necesito un abogado para pedir asilo o puedo hacerlo solo?",
+        "topic": "Orientación migratoria"
+      },
+      {
+        "q": "¿Puedo abrir una cuenta en el banco sin seguro social?",
+        "topic": "Navegar el sistema"
+      },
+      {
+        "q": "¿Cómo declaro impuestos si todavía no tengo estatus?",
+        "topic": "Navegar el sistema"
+      },
+      {
+        "q": "Si me detiene la policía, ¿tengo que decir de dónde soy?",
+        "topic": "Conoce tus derechos"
+      }
+    ],
+    "teaserPill": "Una fundación familiar",
+    "teaserTitle": "Nacimos para devolver algo a la comunidad inmigrante",
+    "teaserBody": "Fundación Verde es la iniciativa social de la familia Verde. Trabajamos junto a Verde Law, el despacho que aporta abogados voluntarios, para que la información que cambia el rumbo de una familia no dependa de poder pagar una consulta.",
+    "teaserCta": "Conoce nuestra misión"
+  },
+  "mision": {
+    "pill": "Nuestra misión",
+    "title": "Una fundación familiar que devuelve a la comunidad inmigrante",
+    "lead": "Creemos que la información clara cambia el rumbo de una familia. Por eso la ofrecemos en persona, en español y sin costo.",
+    "whyTitle": "Por qué existimos",
+    "why": [
+      "Todos los días llegan a Verde Law personas que llevan años en el país sin saber que tenían una opción, o que gastaron sus ahorros en alguien que no era abogado. La mayoría de esas historias empezaron por falta de información.",
+      "Fundación Verde nace de la familia Verde para cambiar ese punto de partida. Organizamos eventos presenciales donde abogados y especialistas voluntarios explican, sin letra pequeña, cómo obtener un estatus y cómo funciona el sistema en Estados Unidos.",
+      "No vendemos nada en nuestros eventos. La entrada es gratuita, las consultas son gratuitas y nadie está obligado a contratar un servicio."
+    ],
+    "valuesPill": "Nuestros valores",
+    "valuesTitle": "Cuatro compromisos que no cambian",
+    "values": [
+      {
+        "title": "Claridad",
+        "body": "Explicamos con ejemplos y en el idioma de la gente. Si no se entiende, no sirve."
+      },
+      {
+        "title": "Gratuidad",
+        "body": "Ningún evento, guía o consulta de la Fundación tiene costo. Nunca."
+      },
+      {
+        "title": "Responsabilidad",
+        "body": "La información la dan abogados con licencia y voluntarios preparados. Nada de rumores."
+      },
+      {
+        "title": "Cercanía",
+        "body": "Llegamos a donde la gente ya se reúne: iglesias, escuelas, bibliotecas y centros comunitarios."
+      }
+    ],
+    "lawPill": "Verde Law",
+    "lawTitle": "Cómo trabajamos con Verde Law",
+    "lawBody": "Verde Law, el despacho fundado por Rafael Verde, aporta los abogados y paralegales voluntarios, parte de los materiales y el apoyo logístico. La Fundación es una organización independiente y sin fines de lucro: decide sus propios temas, sedes y prioridades.",
+    "lawGivesTitle": "Lo que aporta Verde Law",
+    "lawGives": [
+      "Abogados y paralegales voluntarios",
+      "Revisión legal de las guías",
+      "Apoyo logístico y de convocatoria"
+    ],
+    "fundDoesTitle": "Lo que hace la Fundación",
+    "fundDoes": [
+      "Define temas, sedes y calendario",
+      "Recibe y administra las donaciones",
+      "Convoca a otros aliados y voluntarios"
+    ],
+    "teamPill": "Quiénes estamos detrás",
+    "teamTitle": "Una familia y una junta directiva",
+    "founder": {
+      "name": "Rafael Verde",
+      "role": "Fundador y presidente",
+      "bio": "Abogado de inmigración y lesiones personales, fundador de Verde Law en Miami."
+    },
+    "boardPending": "Nombre por confirmar",
+    "boardBio": "Breve descripción de su rol en la Fundación y su trayectoria.",
+    "boardRoles": [
+      "Vicepresidencia",
+      "Tesorería",
+      "Coordinación de eventos"
+    ],
+    "timelinePill": "El camino",
+    "timelineTitle": "De una idea familiar a un calendario de eventos",
+    "timeline": [
+      {
+        "time": "2026",
+        "title": "Nace Fundación Verde",
+        "body": "Constitución, identidad y planeación del primer año junto a Verde Law."
+      },
+      {
+        "time": "Enero 2027",
+        "title": "Primer evento en Hialeah",
+        "body": "Orientación migratoria para 120 familias, con consultas individuales al cierre."
+      },
+      {
+        "time": "2027",
+        "title": "12 eventos en 6 sedes",
+        "body": "Miami-Dade, Orlando y Tampa, en iglesias, bibliotecas y centros comunitarios."
+      },
+      {
+        "time": "Después",
+        "title": "Nuevas ciudades",
+        "body": "Crecemos a donde la comunidad nos lo pida y donde haya aliados locales."
+      }
+    ],
+    "joinTitle": "¿Quieres formar parte?",
+    "joinBody": "Voluntarios, aliados y donantes hacen posible cada evento.",
+    "joinCta": "Involúcrate",
+    "joinDonate": "Donar"
+  },
+  "programas": {
+    "pill": "Programas",
+    "title": "Cuatro frentes, un mismo objetivo: que entiendas tus opciones",
+    "lead": "Todos los programas se entregan en eventos presenciales, en español, con material impreso y consultas individuales al final.",
+    "blocks": [
+      {
+        "title": "Orientación migratoria",
+        "body": "Explicamos las vías para obtener un estatus, qué requiere cada una y cuánto suele tardar. Sin prometer resultados y sin tecnicismos: el objetivo es que salgas sabiendo cuál podría ser tu camino y qué preguntar cuando busques representación.",
+        "chips": [
+          "Asilo",
+          "TPS",
+          "Peticiones familiares",
+          "Visas de trabajo",
+          "Parole",
+          "Residencia y ciudadanía"
+        ]
+      },
+      {
+        "title": "Navegar el sistema",
+        "body": "Lo cotidiano que nadie explica cuando llegas: cómo abrir una cuenta bancaria, inscribir a los hijos en la escuela, obtener una licencia, declarar impuestos con ITIN o acceder a servicios de salud. Cada sesión invita a un especialista del tema.",
+        "chips": [
+          "Cuenta bancaria",
+          "Escuela",
+          "Licencia de conducir",
+          "Impuestos e ITIN",
+          "Salud",
+          "Vivienda"
+        ]
+      },
+      {
+        "title": "Conoce tus derechos",
+        "body": "Qué puedes hacer y qué no tienes que hacer ante una autoridad, cómo reconocer a un falso abogado o notario, y a quién acudir si algo sale mal. Información responsable, dicha con calma, para que las decisiones no se tomen con miedo.",
+        "chips": [
+          "Encuentros con autoridades",
+          "Fraudes y notarios",
+          "Derechos laborales",
+          "Dónde denunciar"
+        ]
+      },
+      {
+        "title": "Consultas con voluntarios",
+        "body": "Al cerrar cada evento, abogados y paralegales voluntarios atienden preguntas individuales por orden de llegada, unos diez minutos por persona. No necesitas traer documentos: basta con contar tu situación para recibir una orientación inicial y saber cuál es el siguiente paso.",
+        "chips": [
+          "Sin cita",
+          "Sin costo",
+          "10 minutos por persona",
+          "Confidencial"
+        ]
+      }
+    ],
+    "topicLink": "Ver eventos de este tema",
+    "upcomingLink": "Ver próximos eventos",
+    "nextMini": "{city}, FL, {time}. {countdown}.",
+    "faqPill": "Preguntas frecuentes",
+    "faqTitle": "Lo que nos preguntan antes de venir"
+  },
+  "eventos": {
+    "pill": "Calendario",
+    "title": "Próximos eventos",
+    "lead": "Todos son presenciales, gratuitos y en español. Reserva tu lugar para asegurar tu guía impresa.",
+    "filterCity": "Ciudad",
+    "filterTopic": "Tema",
+    "allCities": "Todas",
+    "allTopics": "Todos",
+    "expectPill": "Qué esperar",
+    "expectTitle": "Ven como estés, con tus preguntas",
+    "expect": [
+      {
+        "title": "No necesitas documentos",
+        "body": "Ninguno. Si quieres, anota fechas clave de tu historia para aprovechar mejor la consulta."
+      },
+      {
+        "title": "Trae a tu familia",
+        "body": "Los eventos son abiertos a todas las edades. Habrá espacio para los niños."
+      },
+      {
+        "title": "Habrá café y guías",
+        "body": "Llega unos minutos antes para registrarte, tomar un café y recibir tu guía impresa."
+      }
+    ],
+    "hostPill": "Trae un evento a tu comunidad",
+    "hostTitle": "¿Tienes un salón y un grupo de personas con preguntas?",
+    "hostBody": "Si diriges una iglesia, una escuela, un centro comunitario o una empresa con al menos 40 personas interesadas, llevamos el evento hasta ti. Nosotros ponemos los voluntarios, las guías y la convocatoria.",
+    "hostCta": "Solicitar un evento"
+  },
+  "involucrate": {
+    "pill": "Involúcrate",
+    "title": "Hay más de una forma de ayudar",
+    "lead": "Un evento necesita voluntarios que expliquen, aliados que abran sus puertas y donantes que cubran los costos. Elige tu forma.",
+    "paths": [
+      {
+        "title": "Voluntariado",
+        "body": "Abogados, paralegales, intérpretes y personas que quieran recibir, registrar y acompañar a las familias. Dos horas por evento, sin compromiso permanente.",
+        "cta": "Quiero ser voluntario"
+      },
+      {
+        "title": "Aliados y sedes",
+        "body": "Iglesias, escuelas, bibliotecas, centros comunitarios y empresas que ofrecen su espacio o su convocatoria. Tu organización aparece como aliada del evento.",
+        "cta": "Quiero ser aliado"
+      },
+      {
+        "title": "Donación y patrocinio",
+        "body": "Desde $25 para imprimir guías hasta el patrocinio completo de un evento. Cada aporte se destina directamente a mantener los eventos gratuitos.",
+        "cta": "Ver formas de donar"
+      }
+    ],
+    "rolesPill": "Roles de voluntariado",
+    "rolesTitle": "Lo que hace falta en cada evento",
+    "roles": [
+      {
+        "title": "Abogado voluntario",
+        "body": "Atiende consultas breves al cierre del evento. Licencia vigente en cualquier estado."
+      },
+      {
+        "title": "Paralegal",
+        "body": "Apoya en las consultas, organiza la fila y entrega el material de seguimiento."
+      },
+      {
+        "title": "Intérprete",
+        "body": "Creole, portugués o inglés. Acompaña a quien lo necesite durante la charla y la consulta."
+      },
+      {
+        "title": "Registro y logística",
+        "body": "Recibe a las familias, entrega las guías y cuida que todo fluya."
+      },
+      {
+        "title": "Contenido y fotografía",
+        "body": "Documenta el evento para contar lo que pasa y convocar al siguiente."
+      }
+    ],
+    "formPill": "Formulario",
+    "formTitle": "Cuéntanos cómo quieres ayudar",
+    "formIntro": "Te respondemos en menos de tres días hábiles. Si eres abogado o paralegal, te enviaremos las fechas de los próximos eventos para que elijas la que te convenga.",
+    "formPerks": [
+      "Sin compromiso permanente",
+      "Capacitación breve antes de tu primer evento",
+      "Constancia de horas de voluntariado"
+    ],
+    "labelCity": "Ciudad",
+    "placeholderCity": "Miami, FL",
+    "labelHow": "Cómo quieres ayudar",
+    "howOptions": [
+      "Abogado voluntario",
+      "Paralegal",
+      "Intérprete",
+      "Registro y logística",
+      "Contenido y fotografía",
+      "Ofrecer una sede o convocatoria",
+      "Patrocinar un evento"
+    ],
+    "placeholderMessage": "Cuéntanos tu disponibilidad, tu organización o cualquier detalle que debamos saber.",
+    "consent": "Acepto que Fundación Verde me contacte por correo o WhatsApp sobre esta solicitud.",
+    "submit": "Enviar solicitud",
+    "success": "Recibimos tu solicitud. Te escribiremos en menos de tres días hábiles."
+  },
+  "donar": {
+    "pill": "Donar",
+    "title": "Mantén los eventos gratuitos",
+    "lead": "Los voluntarios ponen su tiempo. Tu donación paga el salón, las guías impresas, los intérpretes y el café. Todo lo que recibimos se destina a eventos.",
+    "perks": [
+      "Recibo por correo en cada donación",
+      "Puedes cancelar una donación mensual cuando quieras",
+      "Publicamos cada año en qué se usó el dinero"
+    ],
+    "tiersPill": "Tu impacto",
+    "tiersTitle": "Qué cubre cada aporte",
+    "tiers": [
+      {
+        "amount": 25,
+        "title": "Guías impresas",
+        "body": "Material en español para 10 familias, para llevar a casa y compartir."
+      },
+      {
+        "amount": 50,
+        "title": "Materiales",
+        "body": "Guías, carpetas y señalización para 20 familias en un evento."
+      },
+      {
+        "amount": 100,
+        "title": "Intérprete",
+        "body": "Un intérprete de creole, portugués o inglés durante toda una sesión."
+      },
+      {
+        "amount": 250,
+        "title": "El salón",
+        "body": "El alquiler de un salón comunitario para un evento de 100 personas."
+      }
+    ],
+    "tierCta": "Donar {money}",
+    "featured": {
+      "amount": "$2,500",
+      "title": "Un evento completo",
+      "body": "Patrocina un evento de principio a fin. Tu nombre o tu empresa aparece en las guías y en esta página.",
+      "cta": "Hablar con nosotros"
+    },
+    "transparencyPill": "Transparencia",
+    "transparencyTitle": "A dónde va el dinero",
+    "transparencyLead": "Distribución prevista para el primer año. Publicaremos las cifras reales al cierre de 2027.",
+    "bars": [
+      {
+        "label": "Eventos y logística (salones, café, transporte)",
+        "pct": 60
+      },
+      {
+        "label": "Guías y materiales impresos",
+        "pct": 25
+      },
+      {
+        "label": "Intérpretes y apoyo a voluntarios",
+        "pct": 10
+      },
+      {
+        "label": "Administración",
+        "pct": 5
+      }
+    ],
+    "waysTitle": "Otras formas de apoyar",
+    "waysIntro": "No todo el apoyo es dinero. Estas son formas concretas de ayudar.",
+    "ways": [
+      {
+        "title": "Presta un salón",
+        "body": "Tu iglesia, escuela o empresa puede ser sede de un evento."
+      },
+      {
+        "title": "Imprime las guías",
+        "body": "Si tienes una imprenta, dona una tirada de material."
+      },
+      {
+        "title": "Dona el café",
+        "body": "Un restaurante o cafetería puede cubrir el refrigerio."
+      },
+      {
+        "title": "Corre la voz",
+        "body": "Comparte el próximo evento con tu comunidad o tu congregación."
+      }
+    ],
+    "faqPill": "Preguntas sobre donaciones",
+    "faqTitle": "Antes de donar"
+  },
+  "gracias": {
+    "pill": "Gracias",
+    "title": "Gracias por mantener los eventos gratuitos",
+    "lead": "Recibirás un recibo por correo en unos minutos. Tu aporte ayuda a que cada familia salga de un evento con información clara y sin costo.",
+    "monthlyNote": "Si elegiste donar cada mes, puedes cancelar cuando quieras desde el enlace que aparece en tu recibo.",
+    "ctaEvents": "Ver próximos eventos",
+    "ctaHome": "Volver al inicio"
+  },
+  "contacto": {
+    "pill": "Contacto",
+    "title": "Hablemos",
+    "lead": "Para asistir a un evento no necesitas escribirnos: reserva directamente en el calendario. Para todo lo demás, este es el lugar.",
+    "labelReason": "Motivo",
+    "reasons": [
+      "Organizar un evento en mi comunidad",
+      "Voluntariado",
+      "Aliados y patrocinio",
+      "Donaciones",
+      "Prensa",
+      "Otro"
+    ],
+    "placeholderMessage": "Cuéntanos en qué podemos ayudarte.",
+    "hint": "No podemos dar orientación legal por este formulario. Para preguntas sobre tu caso, ven a un evento.",
+    "submit": "Enviar mensaje",
+    "success": "Mensaje enviado. Te respondemos en menos de tres días hábiles.",
+    "emailTitle": "Correo",
+    "whatsappTitle": "WhatsApp",
+    "whatsappHours": "Lunes a viernes, 9 a.m. a 6 p.m.",
+    "whatsappCta": "Escríbenos por WhatsApp",
+    "whatsappText": "Hola, les escribo desde el sitio de Fundación Verde.",
+    "hqTitle": "Sede",
+    "addressPending": "Dirección por confirmar",
+    "socialTitle": "Redes"
+  },
+  "newsletter": {
+    "title": "Te avisamos cuando haya un evento cerca de ti",
+    "body": "Un correo al mes, sin spam. Solo fechas, sedes y temas.",
+    "toggleAria": "Cómo quieres recibir los avisos",
+    "email": "Correo",
+    "whatsapp": "WhatsApp",
+    "labelEmail": "Correo electrónico",
+    "labelWhatsapp": "Número de WhatsApp",
+    "placeholderEmail": "Tu correo electrónico",
+    "placeholderWhatsapp": "Tu número de WhatsApp",
+    "submit": "Suscribirme",
+    "success": "Listo. Te avisamos del próximo evento."
+  },
+  "footer": {
+    "colFoundation": "Fundación",
+    "linksFoundation": [
+      "Nuestra misión",
+      "Programas",
+      "Eventos",
+      "Transparencia"
+    ],
+    "colParticipate": "Participa",
+    "linksParticipate": [
+      "Voluntariado",
+      "Aliados y sedes",
+      "Donar",
+      "Organiza un evento"
+    ],
+    "colContact": "Contacto",
+    "colGallery": "Galería",
+    "galleryAria": "Fotos de eventos",
+    "legal": "© {year} Fundación Verde. La información compartida en nuestros eventos es general y educativa; no sustituye la asesoría legal sobre tu caso ni crea una relación abogado-cliente.",
+    "ein": "EIN {ein}",
+    "legalNav": "Legal",
+    "privacy": "Privacidad",
+    "terms": "Términos"
+  },
+  "mobileCta": {
+    "events": "Eventos",
+    "donate": "Donar"
+  },
+  "notFound": {
+    "pill": "Error 404",
+    "title": "No encontramos esta página",
+    "lead": "Puede que el enlace haya cambiado o que la página ya no exista. Estas son algunas opciones para seguir.",
+    "ctaHome": "Ir al inicio",
+    "ctaEvents": "Ver próximos eventos"
+  },
+  "legal": {
+    "reviewNotice": "Texto provisional pendiente de revisión legal. No publicar sin aprobación.",
+    "updated": "Última actualización: por confirmar",
+    "privacy": {
+      "pill": "Privacidad",
+      "title": "Aviso de privacidad",
+      "sections": [
+        {
+          "h": "Qué datos recogemos",
+          "p": [
+            "Cuando reservas un lugar, te suscribes al boletín o nos escribes, recogemos los datos que tú nos das: nombre, correo, número de WhatsApp, ciudad y el mensaje que envíes. No te pedimos tu estatus migratorio."
+          ]
+        },
+        {
+          "h": "Para qué los usamos",
+          "p": [
+            "Usamos estos datos para confirmar tu reserva, avisarte de próximos eventos si lo pediste, responder tu mensaje y preparar suficientes guías y sillas."
+          ]
+        },
+        {
+          "h": "Con quién los compartimos",
+          "p": [
+            "No vendemos tus datos. Los guardamos en herramientas que nos ayudan a gestionar las reservas, los envíos y las donaciones, como nuestro sistema de contactos y la plataforma de pagos."
+          ]
+        },
+        {
+          "h": "Tus opciones",
+          "p": [
+            "Puedes pedirnos que corrijamos o borremos tus datos, o dejar de recibir avisos en cualquier momento, escribiendo a hola@fundacionverde.org."
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "pill": "Términos",
+      "title": "Términos de uso",
+      "sections": [
+        {
+          "h": "Información general",
+          "p": [
+            "El contenido de este sitio y de nuestros eventos es general y educativo. No sustituye la asesoría legal sobre tu caso ni crea una relación abogado-cliente."
+          ]
+        },
+        {
+          "h": "Reservas",
+          "p": [
+            "Reservar un lugar es gratis y no te obliga a nada. Los cupos son limitados y las sedes pueden cambiar; te avisaremos por WhatsApp o correo si eso pasa."
+          ]
+        },
+        {
+          "h": "Donaciones",
+          "p": [
+            "Las donaciones se procesan de forma segura a través de nuestra plataforma de pagos. Puedes cancelar una donación mensual cuando quieras."
+          ]
+        },
+        {
+          "h": "Contacto",
+          "p": [
+            "Si tienes preguntas sobre estos términos, escríbenos a hola@fundacionverde.org."
+          ]
+        }
+      ]
+    }
+  }
+}

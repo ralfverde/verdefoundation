@@ -1,0 +1,150 @@
+---
+import Icon from '../components/Icon.astro';
+import Photo from '../components/Photo.astro';
+import Pill from '../components/Pill.astro';
+import Layout from '../layouts/Layout.astro';
+import { dict, href, type Lang } from '../lib/i18n';
+import type { IconName } from '../lib/icons';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = dict(lang);
+const m = t.mision;
+const u = (p: string) => href(lang, p);
+const valueIcons: IconName[] = ['compass', 'gift', 'shield', 'building'];
+const boardIds = ['mision/junta-vicepresidencia', 'mision/junta-tesoreria', 'mision/junta-coordinacion'];
+---
+<Layout lang={lang} title={t.pageTitles.mision} description={t.pageDescriptions.mision} ogKey="mision">
+  <div class="container page-hero page-hero--split">
+    <div>
+      <Pill>{m.pill}</Pill>
+      <h1 class="h1">{m.title}</h1>
+      <p class="lead">{m.lead}</p>
+    </div>
+    <Photo id="mision/charla" lang={lang} eager />
+  </div>
+
+  <div class="section section--tight">
+    <div class="container two-col">
+      <div class="prose">
+        <h2 class="h2">{m.whyTitle}</h2>
+        {m.why.map((p) => <p>{p}</p>)}
+      </div>
+      <Photo id="mision/guia-impresa" lang={lang} />
+    </div>
+  </div>
+
+  <div class="section section--tight">
+    <div class="container">
+      <div class="sec-head sec-head--center">
+        <div>
+          <Pill>{m.valuesPill}</Pill>
+          <h2 class="h2">{m.valuesTitle}</h2>
+        </div>
+      </div>
+      <div class="values">
+        {
+          m.values.map((v, i) => (
+            <div class="value">
+              <div class="value__icon"><Icon name={valueIcons[i]} /></div>
+              <h3>{v.title}</h3>
+              <p>{v.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="section section--tight">
+    <div class="container">
+      <div class="panel panel--navy">
+        <div class="split">
+          <div>
+            <Pill style="background:rgba(255,255,255,.1);color:#9EE3C4">{m.lawPill}</Pill>
+            <h2 class="h2" style="margin-top:.9rem">{m.lawTitle}</h2>
+            <p style="margin-top:1rem;max-width:30rem">{m.lawBody}</p>
+          </div>
+          <div class="who-what" style="margin-top:0">
+            <div>
+              <h3>{m.lawGivesTitle}</h3>
+              <ul class="v-list v-list--light">{m.lawGives.map((x) => <li>{x}</li>)}</ul>
+            </div>
+            <div>
+              <h3>{m.fundDoesTitle}</h3>
+              <ul class="v-list v-list--light">{m.fundDoes.map((x) => <li>{x}</li>)}</ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section section--tight">
+    <div class="container">
+      <div class="sec-head">
+        <div>
+          <Pill>{m.teamPill}</Pill>
+          <h2 class="h2">{m.teamTitle}</h2>
+        </div>
+      </div>
+      <div class="team">
+        <div class="person">
+          <Photo id="mision/rafael-verde" lang={lang} sizes="(max-width: 640px) 100vw, 280px" />
+          <h3>{m.founder.name}</h3>
+          <p class="person__role">{m.founder.role}</p>
+          <p>{m.founder.bio}</p>
+        </div>
+        {
+          m.boardRoles.map((role, i) => (
+            <div class="person person--slot">
+              <Photo id={boardIds[i]} lang={lang} sizes="(max-width: 640px) 100vw, 280px" />
+              <h3>{m.boardPending}</h3>
+              <p class="person__role">{role}</p>
+              <p>{m.boardBio}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="section section--tight">
+    <div class="container">
+      <div class="sec-head">
+        <div>
+          <Pill>{m.timelinePill}</Pill>
+          <h2 class="h2">{m.timelineTitle}</h2>
+        </div>
+      </div>
+      <div class="timeline">
+        {
+          m.timeline.map((item, i) => (
+            <div class={i === 0 ? 'tl' : 'tl tl--future'}>
+              <time>{item.time}</time>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="section section--tight">
+    <div class="container">
+      <div class="panel panel--mint" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1.5rem">
+        <div>
+          <h2 class="h2" style="font-size:1.6rem">{m.joinTitle}</h2>
+          <p class="muted" style="margin-top:.4rem">{m.joinBody}</p>
+        </div>
+        <div style="display:flex;gap:.75rem;flex-wrap:wrap">
+          <a class="btn btn--primary" href={u('/involucrate')}>{m.joinCta}</a>
+          <a class="btn btn--ghost" href={u('/donar')}>{m.joinDonate}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

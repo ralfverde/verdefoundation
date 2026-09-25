@@ -1,0 +1,55 @@
+---
+import Icon from './Icon.astro';
+import Logo from './Logo.astro';
+import { alternateHref, basePath, dict, href, type Lang } from '../lib/i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = dict(lang);
+const path = basePath(Astro.url.pathname);
+const NAV = ['inicio', 'mision', 'programas', 'eventos', 'involucrate', 'contacto'] as const;
+const navPath = (k: (typeof NAV)[number]) => (k === 'inicio' ? '/' : `/${k}`);
+const active = (k: (typeof NAV)[number]) =>
+  k === 'inicio' ? path === '/' : path === navPath(k) || path.startsWith(`${navPath(k)}/`);
+const esHref = alternateHref(Astro.url.pathname, 'es');
+const enHref = alternateHref(Astro.url.pathname, 'en');
+---
+<header class="site-header" id="site-header">
+  <div class="container header-inner">
+    <a class="brand" href={href(lang, '/')} aria-label={t.common.brandAria}>
+      <Logo />
+      <span class="brand__name">{t.common.brandFirst} <span>{t.common.brandSecond}</span></span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label={t.nav.aria}>
+      {
+        NAV.map((k) => (
+          <a href={href(lang, navPath(k))} class={active(k) ? 'is-active' : undefined} aria-current={active(k) ? 'page' : undefined}>
+            {t.nav[k]}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="header-actions">
+      <div class="lang" role="group" aria-label={t.common.langGroup}>
+        <a href={esHref} class={lang === 'es' ? 'is-on' : undefined} aria-pressed={lang === 'es' ? 'true' : 'false'} hreflang="es" lang="es">ES</a>
+        {
+          enHref ? (
+            <a href={enHref} class={lang === 'en' ? 'is-on' : undefined} aria-pressed={lang === 'en' ? 'true' : 'false'} hreflang="en" lang="en">EN</a>
+          ) : (
+            <button type="button" class={lang === 'en' ? 'is-on' : undefined} data-lang-en aria-pressed={lang === 'en' ? 'true' : 'false'} title={t.common.enTitle}>EN</button>
+          )
+        }
+      </div>
+      <a class="btn btn--primary btn--sm" href={href(lang, '/donar')}><Icon name="heart" />{t.common.donate}</a>
+      <button class="burger" type="button" id="burger" aria-expanded="false" aria-controls="nav" aria-label={t.common.menuOpen} data-label-open={t.common.menuOpen} data-label-close={t.common.menuClose}>
+        <Icon name="menu" class="icon--menu" />
+        <Icon name="close" class="icon--close" />
+      </button>
+    </div>
+  </div>
+</header>

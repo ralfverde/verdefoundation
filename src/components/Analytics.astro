@@ -1,0 +1,30 @@
+---
+// Plausible (PUBLIC_PLAUSIBLE_DOMAIN) or GA4 (PUBLIC_GA4_ID). If neither is
+// set, nothing loads and track() in src/scripts/analytics.ts is a no-op.
+const plausible = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN;
+const plausibleSrc = import.meta.env.PUBLIC_PLAUSIBLE_SRC || 'https://plausible.io/js/script.js';
+const ga4 = !plausible ? import.meta.env.PUBLIC_GA4_ID : undefined;
+---
+{
+  plausible && (
+    <>
+      <script is:inline defer data-domain={plausible} src={plausibleSrc} />
+      <script is:inline>
+        window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments); };
+      </script>
+    </>
+  )
+}
+{
+  ga4 && (
+    <>
+      <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${ga4}`} />
+      <script is:inline define:vars={{ ga4 }}>
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { window.dataLayer.push(arguments); };
+        window.gtag('js', new Date());
+        window.gtag('config', ga4);
+      </script>
+    </>
+  )
+}

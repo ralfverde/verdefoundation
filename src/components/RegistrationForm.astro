@@ -1,0 +1,60 @@
+---
+/**
+ * Event registration form, shared by the event modal and /eventos/[slug].
+ * In the modal the event fields are filled in by the browser script.
+ */
+import Icon from './Icon.astro';
+import Honeypot from './Honeypot.astro';
+import { dict, href, type Lang } from '../lib/i18n';
+import type { EventView } from '../lib/events';
+
+interface Props {
+  lang: Lang;
+  /** Prefix for field ids (must be unique on the page) */
+  idPrefix: string;
+  event?: EventView;
+  class?: string;
+  inModal?: boolean;
+}
+
+const { lang, idPrefix: p, event, class: cls = '', inModal = false } = Astro.props;
+const t = dict(lang);
+const m = t.modal;
+const shareHref = event
+  ? `https://wa.me/?text=${encodeURIComponent(
+      m.shareText
+        .replace('{title}', event.title)
+        .replace('{date}', event.dateLong)
+        .replace('{time}', event.timeLabel)
+        .replace('{place}', event.place)
+        .replace('{url}', event.absoluteUrl),
+    )}`
+  : '#';
+---
+<form class={`form ${cls}`} data-form="registration" novalidate>
+  <input type="hidden" name="event_slug" value={event?.slug ?? ''} />
+  <div class="form__fields">
+    <h2 class="form__title">{m.formTitle}</h2>
+    <p class="muted">{m.formIntro}</p>
+    <div class="field"><label for={`${p}-nombre`}>{t.common.labelName}</label><input id={`${p}-nombre`} name="name" type="text" autocomplete="name" placeholder={t.common.placeholderName} required /></div>
+    <div class="form__row">
+      <div class="field"><label for={`${p}-tel`}>{m.labelWhatsapp}</label><input id={`${p}-tel`} name="phone" type="tel" autocomplete="tel" placeholder={t.common.placeholderPhone} required /></div>
+      <div class="field">
+        <label for={`${p}-personas`}>{m.labelPeople}</label>
+        <select id={`${p}-personas`} name="attendees">
+          <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">{m.peopleMore}</option>
+        </select>
+      </div>
+    </div>
+    <div class="field"><label for={`${p}-email`}>{m.labelEmailOptional}</label><input id={`${p}-email`} name="email" type="email" autocomplete="email" placeholder={t.common.placeholderEmail} /></div>
+    <label class="check"><input type="checkbox" name="opt_in" value="yes" checked /><span>{m.optIn}</span></label>
+    <Honeypot lang={lang} id={p} />
+  </div>
+  <div class="form__actions"><button class="btn btn--primary btn--lg btn--block" type="submit">{m.submit}</button></div>
+  <div class="form__success"><Icon name="check-circle" /><span>{m.success}</span></div>
+  <div class="after-actions">
+    <a class="btn btn--ghost" href={event?.icsUrl ?? '#'} download data-ics><Icon name="calendar" />{m.addToCalendar}</a>
+    <a class="btn btn--ghost" href={shareHref} target="_blank" rel="noopener" data-share><Icon name="whatsapp" />{m.shareWhatsapp}</a>
+    <a class="btn btn--ghost" href={href(lang, '/eventos')} data-close={inModal ? '' : undefined}><Icon name="arrow" />{m.otherEvents}</a>
+  </div>
+</form>

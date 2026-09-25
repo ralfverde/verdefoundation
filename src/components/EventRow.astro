@@ -1,0 +1,50 @@
+---
+import CapacityBar from './CapacityBar.astro';
+import Icon from './Icon.astro';
+import Photo from './Photo.astro';
+import { dict, type Lang } from '../lib/i18n';
+import type { EventView } from '../lib/events';
+import { TOPIC_VARIANT } from '../lib/topics';
+
+interface Props {
+  lang: Lang;
+  event: EventView;
+}
+const { lang, event: ev } = Astro.props;
+const t = dict(lang);
+---
+<article class="event-row" data-city={ev.city} data-topic={ev.topic}>
+  <div class="event-row__date">
+    <div class="date-block"><b>{ev.day}</b><small>{ev.month}</small></div>
+    <small>{ev.weekday}</small>
+  </div>
+  <Photo id={`eventos/${ev.slug}`} lang={lang} alt={ev.photo} variant={TOPIC_VARIANT[ev.topic]} tag={null} sizes="200px" />
+  <div class="event-row__body">
+    <span class="chip">{ev.topicLabel}</span>
+    <h3><a href={ev.url}>{ev.title}</a></h3>
+    <div class="event__meta">
+      <span><Icon name="clock" />{ev.timeRange}</span>
+      <span><Icon name="pin" />{ev.place}</span>
+    </div>
+    {!ev.past && <CapacityBar lang={lang} event={ev} />}
+  </div>
+  <div class="event-row__cta">
+    {
+      ev.past ? (
+        <>
+          <span class="event__free"><Icon name="check" />{t.events.pastDone}</span>
+          <a class="btn btn--ghost" href={ev.url}>{t.events.viewDetails}</a>
+        </>
+      ) : (
+        <>
+          <span class="event__free"><Icon name="check" />{t.common.entryFree}</span>
+          {ev.registrationOpen ? (
+            <a class="btn btn--navy" href={ev.url} data-event={ev.slug}>{t.events.reserve}</a>
+          ) : (
+            <a class="btn btn--ghost" href={ev.url}>{t.events.viewEvent}</a>
+          )}
+        </>
+      )
+    }
+  </div>
+</article>

@@ -1,0 +1,9 @@
+---
+import Icon from './Icon.astro';
+interface Props {
+  class?: string;
+  style?: string;
+}
+const { class: cls = '', style } = Astro.props;
+---
+<span class={`pill ${cls}`.trim()} style={style}><Icon name="sparkle" fill /><slot /></span>

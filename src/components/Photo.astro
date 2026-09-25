@@ -1,0 +1,77 @@
+---
+/**
+ * A photo slot. Renders the real image from src/assets/img/<id>.(jpg|jpeg|png|webp|avif)
+ * when that file exists; otherwise renders the styled placeholder from the
+ * prototype (gradient, dot pattern, logo watermark and the "Foto: ..." tag).
+ *
+ * Placeholder copy (alt text, tag, variant) lives in src/data/photos.json,
+ * which also generates PHOTO-SHOTLIST.md (npm run shotlist).
+ */
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+import Logo from './Logo.astro';
+import photos from '../data/photos.json';
+import type { Lang } from '../lib/i18n';
+import type { IconName } from '../lib/icons';
+
+interface Props {
+  /** Image id, e.g. "inicio/hero" -> src/assets/img/inicio/hero.jpg */
+  id: string;
+  lang: Lang;
+  /** Override alt text (event photos come from the events collection) */
+  alt?: string;
+  variant?: '' | 'navy' | 'sand';
+  /** Show the "Foto: ..." tag (only where the prototype shows one) */
+  tag?: string | null;
+  tagIcon?: IconName;
+  class?: string;
+  style?: string;
+  /** Above-the-fold images load eagerly; everything else is lazy. */
+  eager?: boolean;
+  sizes?: string;
+}
+
+type PhotoInfo = { page: string; variant: string; alt: { es: string; en: string }; tag?: { es: string; en: string } };
+const registry = photos as Record<string, PhotoInfo>;
+
+const { id, lang, class: cls = '', style, eager = false, sizes = '(max-width: 960px) 100vw, 50vw', tagIcon = 'camera' } = Astro.props;
+const info = registry[id];
+const alt = Astro.props.alt ?? info?.alt[lang] ?? '';
+const variant = Astro.props.variant ?? (info?.variant as Props['variant']) ?? '';
+const tag = Astro.props.tag !== undefined ? Astro.props.tag : info?.tag?.[lang] ?? null;
+
+const files = import.meta.glob<{ default: ImageMetadata }>('/src/assets/img/**/*.{jpg,jpeg,png,webp,avif}', { eager: true });
+const match = Object.keys(files).find((k) => k.replace(/\.(jpe?g|png|webp|avif)$/i, '') === `/src/assets/img/${id}`);
+const image = match ? files[match].default : null;
+
+const classes = ['ph', variant && `ph--${variant}`, image && 'ph--photo', cls].filter(Boolean).join(' ');
+---
+{
+  image ? (
+    <figure class={classes} style={style}>
+      <Image
+        class="ph__img"
+        src={image}
+        alt={alt}
+        widths={[480, 800, 1200, 1600].filter((w) => w <= image.width)}
+        sizes={sizes}
+        loading={eager ? 'eager' : 'lazy'}
+        fetchpriority={eager ? 'high' : undefined}
+        decoding={eager ? 'sync' : 'async'}
+      />
+      <slot />
+    </figure>
+  ) : (
+    <figure class={classes} style={style} data-photo={alt}>
+      <Logo variant="navy" class="ph__mark" />
+      {tag && (
+        <span class="ph__tag" aria-hidden="true">
+          <Icon name={tagIcon} />
+          {tag}
+        </span>
+      )}
+      <slot />
+    </figure>
+  )
+}

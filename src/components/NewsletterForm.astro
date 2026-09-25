@@ -1,0 +1,40 @@
+---
+import Icon from './Icon.astro';
+import Honeypot from './Honeypot.astro';
+import { dict, type Lang } from '../lib/i18n';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = dict(lang).newsletter;
+---
+<form class="form" data-form="newsletter" novalidate id="boletin" data-nl-form>
+  <div class="nl-toggle" role="group" aria-label={t.toggleAria}>
+    <button type="button" class="is-on" data-nl="email" aria-pressed="true"><Icon name="mail" />{t.email}</button>
+    <button type="button" data-nl="whatsapp" aria-pressed="false"><Icon name="whatsapp" />{t.whatsapp}</button>
+  </div>
+  <input type="hidden" name="channel" value="email" />
+  <label
+    class="visually-hidden"
+    for="nl-value"
+    id="nl-label"
+    data-label-email={t.labelEmail}
+    data-label-whatsapp={t.labelWhatsapp}>{t.labelEmail}</label
+  >
+  <div class="form__fields nl-box">
+    <input
+      id="nl-value"
+      type="email"
+      name="email"
+      autocomplete="email"
+      placeholder={t.placeholderEmail}
+      data-ph-email={t.placeholderEmail}
+      data-ph-whatsapp={t.placeholderWhatsapp}
+      required
+    />
+    <Honeypot lang={lang} id="nl" />
+    <button class="btn btn--navy" type="submit">{t.submit}</button>
+  </div>
+  <div class="form__success"><Icon name="check-circle" /><span>{t.success}</span></div>
+</form>

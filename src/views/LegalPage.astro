@@ -1,0 +1,37 @@
+---
+/** Placeholder privacy and terms pages. The copy is provisional and marked for legal review. */
+import Icon from '../components/Icon.astro';
+import Pill from '../components/Pill.astro';
+import Layout from '../layouts/Layout.astro';
+import { dict, type Lang } from '../lib/i18n';
+
+interface Props {
+  lang: Lang;
+  kind: 'privacy' | 'terms';
+}
+const { lang, kind } = Astro.props;
+const t = dict(lang);
+const l = t.legal;
+const page = l[kind];
+const key = kind === 'privacy' ? 'privacidad' : 'terminos';
+---
+<Layout lang={lang} title={t.pageTitles[key]} description={t.pageDescriptions[key]} ogKey={key} noindex>
+  <div class="container page-hero">
+    <Pill>{page.pill}</Pill>
+    <h1 class="h1">{page.title}</h1>
+    <p class="notice" style="max-width:46rem"><Icon name="file" />{l.reviewNotice}</p>
+  </div>
+  <div class="section section--tight section--flush-top">
+    <div class="container legal-copy">
+      {
+        page.sections.map((s) => (
+          <>
+            <h2>{s.h}</h2>
+            {s.p.map((p) => <p>{p}</p>)}
+          </>
+        ))
+      }
+      <p class="muted">{l.updated}</p>
+    </div>
+  </div>
+</Layout>

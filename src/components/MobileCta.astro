@@ -1,0 +1,14 @@
+---
+import Icon from './Icon.astro';
+import { dict, href, type Lang } from '../lib/i18n';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = dict(lang);
+---
+<div class="mobile-cta">
+  <a class="btn btn--ghost" href={href(lang, '/eventos')}><Icon name="calendar" />{t.mobileCta.events}</a>
+  <a class="btn btn--primary" href={href(lang, '/donar')}><Icon name="heart" />{t.mobileCta.donate}</a>
+</div>

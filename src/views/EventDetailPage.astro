@@ -1,0 +1,85 @@
+---
+import CapacityBar from '../components/CapacityBar.astro';
+import Icon from '../components/Icon.astro';
+import Photo from '../components/Photo.astro';
+import Pill from '../components/Pill.astro';
+import RegistrationForm from '../components/RegistrationForm.astro';
+import Layout from '../layouts/Layout.astro';
+import { isoWithOffset } from '../lib/dates';
+import type { EventView } from '../lib/events';
+import { dict, href, type Lang } from '../lib/i18n';
+import { SITE } from '../lib/site';
+import { TOPIC_VARIANT } from '../lib/topics';
+
+interface Props {
+  lang: Lang;
+  event: EventView;
+}
+const { lang, event: ev } = Astro.props;
+const t = dict(lang);
+
+const jsonLd = [
+  {
+    '@type': 'Event',
+    name: ev.title,
+    description: ev.description,
+    startDate: isoWithOffset(ev.date, ev.time),
+    endDate: isoWithOffset(ev.date, ev.end),
+    eventStatus: 'https://schema.org/EventScheduled',
+    eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+    inLanguage: 'es',
+    isAccessibleForFree: true,
+    url: ev.absoluteUrl,
+    image: [`${SITE.url}/og/${lang}/eventos/${ev.slug}.png`],
+    location: {
+      '@type': 'Place',
+      name: ev.venue,
+      address: { '@type': 'PostalAddress', addressLocality: ev.city, addressRegion: 'FL', addressCountry: 'US' },
+    },
+    organizer: { '@type': 'NGO', '@id': `${SITE.url}/#organization`, name: SITE.name, url: SITE.url },
+    offers: {
+      '@type': 'Offer',
+      price: 0,
+      priceCurrency: 'USD',
+      availability: ev.registrationOpen && !ev.past ? 'https://schema.org/InStock' : 'https://schema.org/SoldOut',
+      url: ev.absoluteUrl,
+    },
+    ...(ev.capacity ? { maximumAttendeeCapacity: ev.capacity } : {}),
+  },
+];
+---
+<Layout lang={lang} title={ev.title} description={ev.description} ogKey={`eventos/${ev.slug}`} jsonLd={jsonLd}>
+  <div class="section section--tight">
+    <div class="container">
+      <p class="back-link"><a class="link" href={href(lang, '/eventos')}><Icon name="arrow" class="icon--back" />{t.events.backToCalendar}</a></p>
+      <div class="event-detail">
+        <Photo id={`eventos/${ev.slug}`} lang={lang} alt={ev.photo} variant={TOPIC_VARIANT[ev.topic]} tag={null} eager sizes="(max-width: 1180px) 100vw, 1180px" />
+        <div class="modal__info">
+          <Pill>{ev.topicLabel}</Pill>
+          <h1>{ev.title}</h1>
+          <div class="modal__meta">
+            <span><Icon name="calendar" /><span>{ev.dateLong}</span></span>
+            <span><Icon name="clock" /><span>{ev.timeRange}</span></span>
+            <span><Icon name="pin" /><span>{ev.place}</span></span>
+            <span><Icon name="compass" /><a class="modal__map" href={ev.mapsUrl} target="_blank" rel="noopener">{t.modal.howToGet}<Icon name="arrow" /></a></span>
+          </div>
+          <p class="modal__desc">{ev.description}</p>
+          <ul class="agenda">
+            {ev.agenda.map((a) => <li><time>{a.time}</time><span>{a.label}</span></li>)}
+          </ul>
+          {!ev.past && <div style="margin-top:1.25rem"><CapacityBar lang={lang} event={ev} /></div>}
+        </div>
+        {
+          ev.past || !ev.registrationOpen ? (
+            <div class="modal__form">
+              <p class="notice"><Icon name="calendar" />{ev.past ? t.events.pastNotice : t.events.closedNotice}</p>
+              <a class="btn btn--primary" href={href(lang, '/eventos')} style="margin-top:1.25rem">{t.modal.otherEvents}<Icon name="arrow" /></a>
+            </div>
+          ) : (
+            <RegistrationForm lang={lang} idPrefix="r" event={ev} class="modal__form" />
+          )
+        }
+      </div>
+    </div>
+  </div>
+</Layout>

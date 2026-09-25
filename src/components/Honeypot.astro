@@ -1,0 +1,13 @@
+---
+import type { Lang } from '../lib/i18n';
+import { dict } from '../lib/i18n';
+interface Props {
+  lang: Lang;
+  id: string;
+}
+const { lang, id } = Astro.props;
+---
+<div class="hp" aria-hidden="true">
+  <label for={`${id}-website`}>{dict(lang).common.honeypot}</label>
+  <input id={`${id}-website`} type="text" name="website" tabindex="-1" autocomplete="off" />
+</div>

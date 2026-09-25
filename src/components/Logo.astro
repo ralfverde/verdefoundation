@@ -1,0 +1,11 @@
+---
+import { logoInner, type LogoVariant } from '../lib/logo';
+
+interface Props {
+  variant?: LogoVariant;
+  class?: string;
+}
+
+const { variant = 'color', class: cls = 'brand__mark' } = Astro.props;
+---
+<svg class={cls} viewBox="0 0 64 64" aria-hidden="true" set:html={logoInner(variant)} />

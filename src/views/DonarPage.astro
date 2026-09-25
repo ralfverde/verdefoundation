@@ -1,0 +1,99 @@
+---
+import DonateWidget from '../components/DonateWidget.astro';
+import FaqList from '../components/FaqList.astro';
+import Icon from '../components/Icon.astro';
+import Pill from '../components/Pill.astro';
+import Layout from '../layouts/Layout.astro';
+import { faqJsonLd } from '../lib/faqs';
+import { dict, fmt, href, type Lang } from '../lib/i18n';
+import type { IconName } from '../lib/icons';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = dict(lang);
+const d = t.donar;
+const u = (p: string) => href(lang, p);
+const wayIcons: IconName[] = ['building', 'file', 'coffee', 'megaphone'];
+const jsonLd = [await faqJsonLd(lang, 'donar')];
+---
+<Layout lang={lang} title={t.pageTitles.donar} description={t.pageDescriptions.donar} ogKey="donar" jsonLd={jsonLd}>
+  <div class="container page-hero page-hero--split">
+    <div>
+      <Pill>{d.pill}</Pill>
+      <h1 class="h1">{d.title}</h1>
+      <p class="lead">{d.lead}</p>
+      <ul class="v-list" style="margin-top:1.5rem">{d.perks.map((x) => <li>{x}</li>)}</ul>
+    </div>
+    <DonateWidget lang={lang} id="donar-widget" headingLevel="h2" />
+  </div>
+
+  <div class="section section--tight">
+    <div class="container">
+      <div class="sec-head">
+        <div>
+          <Pill>{d.tiersPill}</Pill>
+          <h2 class="h2">{d.tiersTitle}</h2>
+        </div>
+      </div>
+      <div class="tiers">
+        {
+          d.tiers.map((tier) => (
+            <div class="tier">
+              <b>${tier.amount}</b>
+              <h3>{tier.title}</h3>
+              <p>{tier.body}</p>
+              <button class="btn btn--ghost btn--sm" type="button" data-pick={tier.amount}>{fmt(d.tierCta, { money: `$${tier.amount}` })}</button>
+            </div>
+          ))
+        }
+        <div class="tier tier--featured">
+          <b>{d.featured.amount}</b>
+          <h3>{d.featured.title}</h3>
+          <p>{d.featured.body}</p>
+          <a class="btn btn--light btn--sm" href={u('/contacto')}>{d.featured.cta}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section section--tight" id="transparencia">
+    <div class="container two-col" style="align-items:start">
+      <div>
+        <Pill>{d.transparencyPill}</Pill>
+        <h2 class="h2" style="margin-top:.9rem">{d.transparencyTitle}</h2>
+        <p class="lead" style="margin-top:.8rem">{d.transparencyLead}</p>
+        <div class="bars">
+          {
+            d.bars.map((b) => (
+              <div class="bar">
+                <div class="bar__label"><span>{b.label}</span><b>{b.pct}%</b></div>
+                <div class="bar__track"><i style={`width:${b.pct}%`} /></div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+      <div class="panel">
+        <h3 style="font-size:1.2rem;margin-bottom:.5rem">{d.waysTitle}</h3>
+        <p class="muted" style="font-size:.95rem;margin-bottom:1.25rem">{d.waysIntro}</p>
+        <div class="ways" style="grid-template-columns:1fr 1fr">
+          {d.ways.map((w, i) => <div class="way"><Icon name={wayIcons[i]} /><h3>{w.title}</h3><p>{w.body}</p></div>)}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section section--tight">
+    <div class="container">
+      <div class="sec-head">
+        <div>
+          <Pill>{d.faqPill}</Pill>
+          <h2 class="h2">{d.faqTitle}</h2>
+        </div>
+      </div>
+      <FaqList lang={lang} group="donar" />
+    </div>
+  </div>
+</Layout>

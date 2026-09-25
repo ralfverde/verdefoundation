@@ -1,0 +1,27 @@
+---
+/**
+ * Capacity bar. The registered count comes from real registrations
+ * (/api/registrations), so the bar stays invisible (space reserved) until
+ * the browser has fetched it. Hidden entirely when capacity is not set.
+ */
+import { dict, fmt, type Lang } from '../lib/i18n';
+import type { EventView } from '../lib/events';
+
+interface Props {
+  lang: Lang;
+  event: EventView;
+}
+const { lang, event } = Astro.props;
+const t = dict(lang).events;
+---
+{
+  event.capacity && (
+    <div class="cap" data-cap={event.slug} data-capacity={event.capacity} data-cap-pending>
+      <div class="cap__track"><i style="width:0%" /></div>
+      <div class="cap__label">
+        <b>{fmt(t.spotsLeft, { n: event.capacity })}</b>
+        <span>{fmt(t.reserved, { n: 0 })}</span>
+      </div>
+    </div>
+  )
+}
